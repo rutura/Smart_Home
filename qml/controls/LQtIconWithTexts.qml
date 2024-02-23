@@ -6,26 +6,30 @@ Item {
     implicitHeight: containerId.implicitHeight
     implicitWidth: containerId.implicitWidth
 
+    property alias iconSource: iconId.source
     property alias topic: topicId.text
-    property alias message: messageId.text
-    property alias icon: iconId.source
+    property alias subtopic: subtopicId.text
 
-    RowLayout {
+    ColumnLayout {
         id: containerId
         anchors.fill: parent
         IconImage {
             id: iconId
-            name: "automatedItem"
+            Layout.alignment: Qt.AlignHCenter
+            name: "itemIcon"
         }
         ColumnLayout {
-            Layout.fillWidth: true
+            Layout.alignment: Qt.AlignHCenter
             Text {
                 id: topicId
+                Layout.alignment: Qt.AlignHCenter
                 font.bold: true
+                font.pointSize: 18
             }
             Text {
-                id: messageId
-                font.italic: true
+                id: subtopicId
+                Layout.alignment: Qt.AlignHCenter
+                wrapMode: Text.Wrap
             }
         }
     }

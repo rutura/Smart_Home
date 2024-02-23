@@ -9,10 +9,10 @@ Item {
 
     implicitWidth: containerId.implicitWidth
     implicitHeight: containerId.implicitHeight
-    Layout.fillWidth: true
 
     ColumnLayout {
         id: containerId
+        anchors.fill: parent
         RoundButton {
             id: roundButtonId
             Layout.alignment: Qt.AlignHCenter
@@ -20,7 +20,6 @@ Item {
         Text {
             id: textId
             Layout.alignment: Qt.AlignHCenter
-            width: roundButtonId.implicitWidth * 1.5
             wrapMode: Text.Wrap
         }
     }

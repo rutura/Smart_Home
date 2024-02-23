@@ -2,49 +2,49 @@ import QtQuick
 import QtQuick.Controls
 import QtQuick.Layouts
 
-Rectangle {
+PaddedRectangle {
     implicitHeight: containerId.implicitHeight
     implicitWidth: containerId.implicitWidth
-    Layout.fillHeight: true
-    Layout.fillWidth: true
+
     Material.elevation: 2
-    border.color: Material.dropShadowColor
-    border.width: 1
     radius: containerId.implicitWidth / 8
+    border.width: 1
+    border.color: "gray"
+    color: "transparent"
 
     property alias iconSource: accessoryIconId.source
-    property alias  title: accessoryTitleId.text
-    property alias  status: accessoryStatusId.text
+    property alias title: accessoryTitleId.text
+    property alias status: accessoryStatusId.text
     property bool showInfo: false
 
-    ColumnLayout{
+    ColumnLayout {
         id: containerId
         anchors.fill: parent
         anchors.margins: 5
-        RowLayout{
+        RowLayout {
             Layout.fillWidth: true
             IconImage {
                 id: accessoryIconId
                 name: "AccessoryIcon"
             }
-            Item{
+            Item {
                 Layout.fillWidth: true
             }
-            RoundButton{
+            RoundButton {
                 icon.source: "qrc:/assets/info.svg"
                 icon.name: "info"
                 visible: showInfo
             }
         }
-        Item{
+        Item {
             Layout.fillHeight: true
         }
-        Text{
+        Text {
             id: accessoryTitleId
             font.bold: true
             font.pointSize: 18
         }
-        Text{
+        Text {
             id: accessoryStatusId
         }
     }

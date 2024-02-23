@@ -2,20 +2,21 @@ import QtQuick
 import QtQuick.Controls
 import QtQuick.Layouts
 import QtQuick.Controls.Material
+
 /**
   TODO
   - support auto-completion
   - support search results display
   **/
-Rectangle {
+PaddedRectangle {
     id: searchBarId
     implicitHeight: containerId.implicitHeight + containerId.searchMargins * 2
     implicitWidth: containerId.implicitWidth + containerId.searchMargins * 2
     radius: containerId.implicitWidth / 2
-    Layout.fillWidth: parent.width
 
+    border.width: 1
+    border.color: "gray"
     color: "transparent"
-    border.color: Material.frameColor
     signal search(var text)
     signal microphone
 

@@ -3,28 +3,32 @@ import QtQuick.Controls
 import QtQuick.Layouts
 import QtMultimedia
 
-Rectangle {
+PaddedRectangle {
     implicitHeight: containerId.implicitHeight
     implicitWidth: containerId.implicitWidth
-    Layout.fillHeight: true
-    Layout.fillWidth: true
-    Material.elevation: 2
-    property alias feed: videoId.source
-    MediaPlayer {
-           id: videoId
-           videoOutput: videoOutput
-       }
 
-       VideoOutput {
-           id: videoOutput
-           anchors.fill: parent
-       }
-    RowLayout{
+    Material.elevation: 2
+    border.width: 1
+    border.color: "gray"
+    color: "transparent"
+    property alias feed: videoId.source
+
+    MediaPlayer {
+        id: videoId
+        videoOutput: videoOutput
+    }
+
+    VideoOutput {
+        id: videoOutput
+        anchors.fill: parent
+        fillMode: VideoOutput.Stretch
+    }
+    RowLayout {
         id: containerId
         anchors.fill: parent
-        ColumnLayout{
-            RowLayout{
-                Button{
+        ColumnLayout {
+            RowLayout {
+                Button {
                     id: liveId
                     icon.source: "qrc:/assets/dot.svg"
                     icon.name: "live"
@@ -43,16 +47,16 @@ Rectangle {
                 text: "talk"
             }
         }
-        Item{
+        Item {
             Layout.fillWidth: true
         }
-        LQtFeedInscribed{
+        LQtFeedInscribed {
             topic: "1025 Sacana Street"
-            subtopic: "Rita Leila is ringin the door bell"
+            subtopic: "Rita Leila is ringing the door bell"
             feed: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
         }
     }
     Component.onCompleted: {
-        videoId.play()
+        videoId.play();
     }
 }

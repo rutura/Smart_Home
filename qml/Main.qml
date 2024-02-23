@@ -4,36 +4,38 @@ import QtQuick.VirtualKeyboard
 import QtQuick.Layouts
 import "drawer"
 import "living_room"
+import "controls"
 
 Window {
     id: window
     visible: true
-    // width: 1920
-    // height: 1080
     visibility: Window.Maximized
     minimumWidth: 640
     minimumHeight: 480
     title: qsTr("SmartHome")
 
+    Material.theme: Material.Light
+    Material.accent: Material.Blue
 
-    RoundButton {
-        Layout.alignment: Qt.AlignTop | Qt.AlignLeft
-        icon.name: "navigation_toolbar_left"
-        icon.source: "qrc:/assets/navigation_toolbar_left.svg"
-        onClicked: {
-            lqtDrawerId.visible = !lqtDrawerId.visible
-        }
-        z: -2
-    }
-    LQtDrawer{
+    LQtDrawer {
         id: lqtDrawerId
+        height: parent.height
         visible: true
     }
 
-    LQtLivingRoom {
-        id: livingRoomId
-        width: parent.width / 3
-        height: parent.height
+    RowLayout {
+        anchors.fill: parent
+        spacing: 10
+        LQtLivingRoom {
+            id: livingRoomId
+            Layout.fillHeight: true
+            Layout.fillWidth: true
+        }
+        LQtControlsPanel {
+            id: controlsPanelId
+            Layout.fillHeight: true
+            Layout.fillWidth: true
+        }
     }
 
     InputPanel {

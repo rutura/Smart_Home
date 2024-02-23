@@ -2,16 +2,16 @@ import QtQuick
 import QtQuick.Controls
 import QtQuick.Layouts
 
-Rectangle {
+PaddedRectangle {
     implicitHeight: containerId.implicitHeight
     implicitWidth: containerId.implicitWidth
-    Layout.fillHeight: true
-    Layout.fillWidth: true
-    Material.elevation: 2
-    border.color: Material.dropShadowColor
-    border.width: 1
-    radius: containerId.implicitWidth / 16
 
+    Material.elevation: 2
+
+    radius: containerId.implicitWidth / 16
+    border.width: 1
+    border.color: "gray"
+    color: "transparent"
 
     property alias iconSource: accessoryIconId.source
     property alias title: accessoryTitleId.text
@@ -21,70 +21,69 @@ Rectangle {
     property alias currentTime: currentTimeId.text
     property alias songDuration: songDurationId.text
 
-    RowLayout{
+    RowLayout {
         id: containerId
         anchors.fill: parent
         anchors.margins: 8
-        ColumnLayout{
-            IconImage{
+        ColumnLayout {
+            IconImage {
                 id: accessoryIconId
                 name: "accessory"
             }
-            Item{
+            Item {
                 Layout.fillHeight: true
             }
-            Text{
+            Text {
                 id: accessoryTitleId
                 font.bold: true
                 font.pointSize: 18
             }
-            Text{
+            Text {
                 id: accessoryStatusId
             }
         }
-        Item{
+        Item {
             Layout.fillWidth: true
         }
-        ColumnLayout{
-            Text{
+        ColumnLayout {
+            Text {
                 id: currentSongId
                 Layout.alignment: Qt.AlignHCenter
                 font.bold: true
             }
-            Text{
+            Text {
                 id: currentArtistId
                 Layout.alignment: Qt.AlignHCenter
             }
-            RowLayout{
+            RowLayout {
                 Layout.alignment: Qt.AlignHCenter
-                RoundButton{
+                RoundButton {
                     icon.source: "qrc:/assets/backward.svg"
                     icon.name: "backward"
                 }
-                RoundButton{
+                RoundButton {
                     icon.source: "qrc:/assets/play.svg"
                     icon.name: "play_or_pause"
                 }
-                RoundButton{
+                RoundButton {
                     icon.source: "qrc:/assets/forward.svg"
                     icon.name: "forward"
                 }
             }
-            Slider{
+            Slider {
                 id: musicProgressId
                 Layout.alignment: Qt.AlignHCenter
             }
             RowLayout {
                 Layout.alignment: Qt.AlignHCenter
-                Text{
+                Text {
                     id: currentTimeId
                 }
-                Item{
+                Item {
                     Layout.fillWidth: true
-
                 }
 
-                Text{
+                Text {
                     id: songDurationId
                 }
             }

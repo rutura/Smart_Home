@@ -19,11 +19,11 @@ qt_add_qml_module(appSmartHome
         qml/Main.qml
         #drawer
         qml/drawer/LQtDrawer.qml
-        qml/components/SearchBar.qml
         qml/drawer/LQtIconButtonWithText.qml
         qml/drawer/LQtMenuItem.qml
         qml/drawer/LQtAutomatedItem.qml
         qml/drawer/LQtProfile.qml
+        qml/drawer/LQtSearchBar.qml
         #living room
         qml/living_room/LQtLivingRoom.qml
         qml/living_room/LQtIconWithText.qml
@@ -31,6 +31,15 @@ qt_add_qml_module(appSmartHome
         qml/living_room/LQtAccessoryWithMusic.qml
         qml/living_room/LQtVideoFeed.qml
         qml/living_room/LQtFeedInscribed.qml
+        #controls
+        qml/controls/LQtControlsPanel.qml
+        qml/controls/LQtIconWithTexts.qml
+        qml/controls/LQtIconsButton.qml
+        qml/controls/LQtEllipseButtonWithTexts.qml
+        qml/controls/LQtControlsCard.qml
+        qml/controls/LQtWeeklyPowerCard.qml
+        qml/controls/LQtProgressBar.qml
+        qml/controls/LQtDial.qml
 )
 
 qt_add_resources(appSmartHome "assets"
@@ -61,6 +70,11 @@ qt_add_resources(appSmartHome "assets"
     assets/cooling.svg
     assets/dot.svg
     assets/unlock.svg
+    assets/power.svg
+    assets/shine.svg
+    assets/fan.svg
+    assets/time.svg
+    assets/flash.svg
 )
 # Qt for iOS sets MACOSX_BUNDLE_GUI_IDENTIFIER automatically since Qt 6.1.
 # If you are developing for iOS or macOS you should consider setting an

@@ -5,7 +5,6 @@ import QtQuick.Layouts
 Item {
     implicitHeight: containerId.implicitHeight
     implicitWidth: containerId.implicitWidth
-    Layout.fillWidth: true
 
     property alias username: usernameId.text
     property alias role: roleId.text
@@ -14,11 +13,11 @@ Item {
     RowLayout {
         id: containerId
         anchors.fill: parent
-        IconImage{
+        IconImage {
             id: iconId
             name: "userProfile"
         }
-        ColumnLayout{
+        ColumnLayout {
             Layout.fillWidth: true
             Layout.alignment: Qt.AlignLeft
             Text {

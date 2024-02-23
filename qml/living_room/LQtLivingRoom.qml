@@ -1,67 +1,80 @@
-import  QtQuick
+import QtQuick
 import QtQuick.Controls
 import QtQuick.Layouts
-
+import QtQuick.Controls.Material.impl
 
 Pane {
-    width: parent.width
-    height: parent.height
+    implicitHeight: containerId.implicitHeight
+    implicitWidth: containerId.implicitWidth
+
     Material.elevation: 2
 
-    ColumnLayout{
+    ColumnLayout {
         id: containerId
         anchors.fill: parent
         Text {
+            Layout.fillWidth: true
             text: qsTr("EDIT")
             color: Material.primaryTextColor
         }
-        RowLayout{
+        RowLayout {
             Layout.fillWidth: true
-            Text{
+            Text {
                 text: "Living Room"
                 font.pointSize: 18
                 font.bold: true
             }
-            Item{
+            Item {
                 Layout.fillWidth: true
             }
-            LQtIconWithText{
+            LQtIconWithText {
                 iconSource: "qrc:/assets/humidity.svg"
                 text: "72%"
             }
-            LQtIconWithText{
+            LQtIconWithText {
                 iconSource: "qrc:/assets/temperature.svg"
                 text: "32°"
             }
         }
         Text {
             text: "Accessories"
+            Layout.fillWidth: true
         }
-        GridLayout{
+        GridLayout {
             Layout.fillWidth: true
             columns: 3
-            LQtAccessory{
+            LQtAccessory {
+                Layout.fillWidth: true
+                Layout.fillHeight: true
                 iconSource: "qrc:/assets/wifi.svg"
                 showInfo: true
                 title: "Nest Wi-Fi"
                 status: "Connected"
             }
-            LQtAccessory{
+            LQtAccessory {
+                Layout.fillWidth: true
+                Layout.fillHeight: true
                 iconSource: "qrc:/assets/tv.svg"
                 title: "Sony TV"
                 status: "On Standby"
             }
-            LQtAccessory{
+            LQtAccessory {
+                Layout.fillWidth: true
+                Layout.fillHeight: true
                 iconSource: "qrc:/assets/cooling.svg"
                 title: "Thermostat"
                 status: "Cooling to 26.5°"
             }
-            LQtAccessory{
+            LQtAccessory {
+                Layout.fillWidth: true
+                Layout.fillHeight: true
                 iconSource: "qrc:/assets/dehumidifier.svg"
                 title: "Air Purifier"
                 status: "Off"
             }
             LQtAccessoryWithMusic {
+                Layout.fillWidth: true
+                Layout.fillHeight: true
                 Layout.columnSpan: 2
                 iconSource: "qrc:/assets/ipod.svg"
                 title: "Homepod"
@@ -77,7 +90,15 @@ Pane {
             font.pointSize: 14
         }
         LQtVideoFeed {
+            Layout.fillWidth: true
             feed: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+        }
+        RangeSlider {
+            Layout.fillWidth: true
+            from: 1
+            to: 100
+            first.value: 25
+            second.value: 75
         }
     }
 }

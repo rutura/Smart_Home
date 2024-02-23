@@ -2,14 +2,13 @@ import QtQuick
 import QtQuick.Controls
 import QtQuick.Layouts
 import QtQuick.Controls.Material
-import "../components" as LQt
 
 Drawer {
     id: drawerId
-    width: 0.3 * parent.width
-    height: parent.height
-
+    implicitHeight: containerId.implicitHeight
+    implicitWidth: containerId.implicitWidth
     ColumnLayout {
+        id: containerId
         anchors.fill: parent
         RowLayout {
             Layout.fillWidth: true
@@ -17,7 +16,7 @@ Drawer {
                 icon.name: "navigation_toolbar_left"
                 icon.source: "qrc:/assets/navigation_toolbar_left.svg"
                 onClicked: {
-                    drawerId.visible  = !drawerId.visible
+                    drawerId.visible = !drawerId.visible;
                 }
             }
             Item {
@@ -39,7 +38,7 @@ Drawer {
             font.bold: true
             font.pointSize: 20
         }
-        LQt.SearchBar {
+        LQtSearchBar {
             Layout.alignment: Qt.AlignHCenter
             onSearch: text => {
                 console.log("Search Text");

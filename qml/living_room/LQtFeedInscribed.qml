@@ -3,21 +3,25 @@ import QtQuick.Controls
 import QtQuick.Layouts
 import QtMultimedia
 
-Rectangle {
+Item {
     id: rootId
     implicitHeight: containerId.implicitHeight
     implicitWidth: containerId.implicitWidth
     Material.elevation: 2
-    color: "transparent"
 
     property alias topic: topicId.text
     property alias subtopic: subtopicId.text
     property alias feed: videoId.source
 
+    MediaPlayer {
+        id: videoId
+        videoOutput: videoOutput
+    }
+
     ColumnLayout {
         id: containerId
         anchors.fill: parent
-        Text{
+        Text {
             id: topicId
             Layout.alignment: Qt.AlignHCenter
             font.pointSize: 24
@@ -36,23 +40,20 @@ Rectangle {
 
         Rectangle {
             Layout.alignment: Qt.AlignHCenter
+            width: 200
+            height: 100
             border.color: "white"
-            border.width: 2
+            border.width: 5
             radius: 1
-            width: rootId.implicitWidth / 2
-            height: rootId.implicitHeight / 3
-            MediaPlayer {
-                   id: videoId
-                   videoOutput: videoOutput
-               }
-
-               VideoOutput {
-                   id: videoOutput
-                   anchors.fill: parent
-               }
+            clip: true
+            VideoOutput {
+                id: videoOutput
+                anchors.fill: parent
+                fillMode: VideoOutput.Stretch
+            }
         }
     }
     Component.onCompleted: {
-        videoId.play()
+        videoId.play();
     }
 }
