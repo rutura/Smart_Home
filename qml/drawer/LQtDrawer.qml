@@ -40,6 +40,7 @@ Drawer {
         }
         LQtSearchBar {
             Layout.alignment: Qt.AlignHCenter
+            Layout.fillWidth: true
             onSearch: text => {
                 console.log("Search Text");
             }
