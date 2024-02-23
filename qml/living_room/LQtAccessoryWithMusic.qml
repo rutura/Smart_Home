@@ -56,6 +56,7 @@ PaddedRectangle {
                 Layout.alignment: Qt.AlignHCenter
             }
             RowLayout {
+                id: musicControlsId
                 Layout.alignment: Qt.AlignHCenter
                 RoundButton {
                     icon.source: "qrc:/assets/backward.svg"
@@ -70,21 +71,23 @@ PaddedRectangle {
                     icon.name: "forward"
                 }
             }
-            Slider {
-                id: musicProgressId
+            LQtSlider {
+                width: musicControlsId.implicitWidth
                 Layout.alignment: Qt.AlignHCenter
             }
             RowLayout {
                 Layout.alignment: Qt.AlignHCenter
                 Text {
                     id: currentTimeId
+                    Layout.alignment: Qt.AlignLeft
                 }
                 Item {
+                    // width: musicProgressId.width * 2
                     Layout.fillWidth: true
                 }
-
                 Text {
                     id: songDurationId
+                    Layout.alignment: Qt.AlignRight
                 }
             }
         }

@@ -5,6 +5,7 @@ import QtQuick.Controls
 PaddedRectangle {
     implicitHeight: containerId.implicitHeight
     implicitWidth: containerId.implicitWidth
+
     radius: containerId.implicitHeight / 8
     border.width: 1
     border.color: "gray"

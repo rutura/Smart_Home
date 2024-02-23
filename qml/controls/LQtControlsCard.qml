@@ -15,6 +15,7 @@ PaddedRectangle {
     ColumnLayout {
         id: containerId
         anchors.fill: parent
+        anchors.margins: 5
         Text {
             text: "Nest Learning"
             font.bold: true

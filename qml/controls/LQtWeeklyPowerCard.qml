@@ -15,6 +15,7 @@ PaddedRectangle {
     ColumnLayout {
         id: containerId
         anchors.fill: parent
+        anchors.margins: 5
         RowLayout {
             Layout.fillWidth: true
             Text {

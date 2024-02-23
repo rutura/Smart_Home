@@ -40,6 +40,7 @@ qt_add_qml_module(appSmartHome
         qml/controls/LQtWeeklyPowerCard.qml
         qml/controls/LQtProgressBar.qml
         qml/controls/LQtDial.qml
+        qml/living_room/LQtSlider.qml
 )
 
 qt_add_resources(appSmartHome "assets"

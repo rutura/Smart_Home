@@ -1,7 +1,6 @@
 import QtQuick
 import QtQuick.Controls
 import QtQuick.Layouts
-import QtQuick.Controls.Material.impl
 
 Pane {
     implicitHeight: containerId.implicitHeight
@@ -9,12 +8,15 @@ Pane {
 
     Material.elevation: 2
 
+    signal navigationClicked
+
     ColumnLayout {
         id: containerId
         anchors.fill: parent
         Text {
             Layout.fillWidth: true
             text: qsTr("EDIT")
+            font.pointSize: 14
             color: Material.primaryTextColor
         }
         RowLayout {
@@ -38,7 +40,8 @@ Pane {
         }
         Text {
             text: "Accessories"
-            Layout.fillWidth: true
+            font.pointSize: 15
+            // Layout.fillWidth: true
         }
         GridLayout {
             Layout.fillWidth: true
@@ -93,12 +96,19 @@ Pane {
             Layout.fillWidth: true
             feed: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
         }
-        RangeSlider {
-            Layout.fillWidth: true
-            from: 1
-            to: 100
-            first.value: 25
-            second.value: 75
+        RowLayout {
+            RoundButton {
+                icon.source: "qrc:/assets/navigation_toolbar_left.svg"
+                icon.name: "navigation drawer"
+                onClicked: navigationClicked()
+            }
+            RangeSlider {
+                Layout.fillWidth: true
+                from: 1
+                to: 100
+                first.value: 25
+                second.value: 75
+            }
         }
     }
 }

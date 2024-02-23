@@ -5,8 +5,6 @@ import QtQuick.Layouts
 Item {
     implicitHeight: containerId.implicitHeight
     implicitWidth: containerId.implicitWidth
-    Layout.fillHeight: true
-    Layout.fillWidth: true
 
     property alias iconSource: iconId.icon.source
     property alias topic: topicId.text

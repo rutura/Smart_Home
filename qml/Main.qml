@@ -10,8 +10,8 @@ Window {
     id: window
     visible: true
     visibility: Window.Maximized
-    minimumWidth: 640
-    minimumHeight: 480
+    minimumWidth: 1024
+    minimumHeight: 720
     title: qsTr("SmartHome")
 
     Material.theme: Material.Light
@@ -30,6 +30,9 @@ Window {
             id: livingRoomId
             Layout.fillHeight: true
             Layout.fillWidth: true
+            onNavigationClicked: {
+                lqtDrawerId.visible = true;
+            }
         }
         LQtControlsPanel {
             id: controlsPanelId

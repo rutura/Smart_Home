@@ -7,6 +7,7 @@ Item {
     implicitWidth: containerId.implicitWidth
 
     property alias text: menuTextId.text
+
     RowLayout {
         id: containerId
         anchors.fill: parent
