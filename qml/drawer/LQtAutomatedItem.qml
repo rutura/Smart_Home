@@ -19,11 +19,11 @@ Item {
         }
         ColumnLayout {
             Layout.fillWidth: true
-            Text {
+            Label {
                 id: topicId
                 font.bold: true
             }
-            Text {
+            Label {
                 id: messageId
                 font.italic: true
             }

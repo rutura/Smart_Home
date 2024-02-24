@@ -17,13 +17,14 @@ Item {
             id: iconId
             Layout.alignment: Qt.AlignHCenter
             icon.name: "buttonIcon"
+            checkable: true
         }
-        Text {
+        Label {
             id: topicId
             Layout.alignment: Qt.AlignHCenter
             font.bold: true
         }
-        Text {
+        Label {
             id: subtopicId
             Layout.alignment: Qt.AlignHCenter
         }

@@ -2,10 +2,11 @@ import QtQuick
 import QtQuick.Controls
 import QtQuick.Layouts
 
-Pane {
+PaddedRectangle {
+
     implicitHeight: containerId.implicitHeight
     implicitWidth: containerId.implicitWidth
-
+    radius: 10
     Material.elevation: 2
 
     signal navigationClicked
@@ -13,6 +14,7 @@ Pane {
     ColumnLayout {
         id: containerId
         anchors.fill: parent
+        anchors.margins: 5
         Text {
             Layout.fillWidth: true
             text: qsTr("EDIT")
@@ -41,7 +43,6 @@ Pane {
         Text {
             text: "Accessories"
             font.pointSize: 15
-            // Layout.fillWidth: true
         }
         GridLayout {
             Layout.fillWidth: true

@@ -26,6 +26,8 @@ PaddedRectangle {
         anchors.fill: parent
         anchors.margins: 8
         ColumnLayout {
+            Layout.fillHeight: true
+            Layout.fillWidth: true
             IconImage {
                 id: accessoryIconId
                 name: "accessory"
@@ -43,9 +45,12 @@ PaddedRectangle {
             }
         }
         Item {
+            Layout.fillHeight: true
             Layout.fillWidth: true
         }
         ColumnLayout {
+            Layout.fillHeight: true
+            Layout.fillWidth: true
             Text {
                 id: currentSongId
                 Layout.alignment: Qt.AlignHCenter

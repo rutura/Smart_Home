@@ -17,7 +17,7 @@ Item {
             id: roundButtonId
             Layout.alignment: Qt.AlignHCenter
         }
-        Text {
+        Label {
             id: textId
             Layout.alignment: Qt.AlignHCenter
             wrapMode: Text.Wrap

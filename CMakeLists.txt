@@ -31,16 +31,17 @@ qt_add_qml_module(appSmartHome
         qml/living_room/LQtAccessoryWithMusic.qml
         qml/living_room/LQtVideoFeed.qml
         qml/living_room/LQtFeedInscribed.qml
-        #controls
-        qml/controls/LQtControlsPanel.qml
-        qml/controls/LQtIconWithTexts.qml
-        qml/controls/LQtIconsButton.qml
-        qml/controls/LQtEllipseButtonWithTexts.qml
-        qml/controls/LQtControlsCard.qml
-        qml/controls/LQtWeeklyPowerCard.qml
-        qml/controls/LQtProgressBar.qml
-        qml/controls/LQtDial.qml
+        #hw_controls
+        qml/hw_controls/LQtControlsPanel.qml
+        qml/hw_controls/LQtIconsButton.qml
+        qml/hw_controls/LQtEllipseButtonWithTexts.qml
+        qml/hw_controls/LQtControlsCard.qml
+        qml/hw_controls/LQtWeeklyPowerCard.qml
+        qml/hw_controls/LQtProgressBar.qml
+        qml/hw_controls/LQtDial.qml
         qml/living_room/LQtSlider.qml
+        qml/components/CircularSlider.qml
+        qml/hw_controls/LQtIconWithTexts.qml
 )
 
 qt_add_resources(appSmartHome "assets"

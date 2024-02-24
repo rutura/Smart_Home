@@ -4,7 +4,7 @@ import QtQuick.VirtualKeyboard
 import QtQuick.Layouts
 import "drawer"
 import "living_room"
-import "controls"
+import "hw_controls"
 
 Window {
     id: window
@@ -17,27 +17,34 @@ Window {
     Material.theme: Material.Light
     Material.accent: Material.Blue
 
-    LQtDrawer {
-        id: lqtDrawerId
-        height: parent.height
-        visible: true
-    }
-
-    RowLayout {
+    PaddedRectangle {
         anchors.fill: parent
-        spacing: 10
-        LQtLivingRoom {
-            id: livingRoomId
-            Layout.fillHeight: true
-            Layout.fillWidth: true
-            onNavigationClicked: {
-                lqtDrawerId.visible = true;
-            }
+        color: "#EAEAEA"
+
+        LQtDrawer {
+            id: lqtDrawerId
+            height: parent.height
+            visible: true
         }
-        LQtControlsPanel {
-            id: controlsPanelId
-            Layout.fillHeight: true
-            Layout.fillWidth: true
+
+        RowLayout {
+            anchors.fill: parent
+            spacing: 10
+            LQtLivingRoom {
+                id: livingRoomId
+                Layout.fillHeight: true
+                Layout.fillWidth: true
+                Layout.margins: 5
+                onNavigationClicked: {
+                    lqtDrawerId.visible = true;
+                }
+            }
+            LQtControlsPanel {
+                id: controlsPanelId
+                Layout.fillHeight: true
+                Layout.fillWidth: true
+                Layout.margins: 5
+            }
         }
     }
 

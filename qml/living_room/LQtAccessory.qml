@@ -23,6 +23,7 @@ PaddedRectangle {
         anchors.margins: 5
         RowLayout {
             Layout.fillWidth: true
+            Layout.fillHeight: true
             IconImage {
                 id: accessoryIconId
                 name: "AccessoryIcon"

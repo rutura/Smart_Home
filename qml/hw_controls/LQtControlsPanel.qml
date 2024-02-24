@@ -1,17 +1,20 @@
 import QtQuick
 import QtQuick.Controls
 import QtQuick.Layouts
+import QtQuick.Shapes
 
-Pane {
+PaddedRectangle {
     id: control
     implicitHeight: containerId.implicitHeight
     implicitWidth: containerId.implicitWidth
+    radius: 10
 
     Material.elevation: 2
 
     ColumnLayout {
         id: containerId
         anchors.fill: parent
+        anchors.margins: 5
         RowLayout {
             Layout.fillWidth: true
             Layout.fillHeight: true
@@ -31,28 +34,27 @@ Pane {
                 iconSource: "qrc:/assets/power.svg"
             }
         }
+
         LQtDial {
             Layout.alignment: Qt.AlignHCenter
             Layout.fillWidth: true
             Layout.fillHeight: true
-            width: containerId.implicitWidth
-            inputMode: Dial.Circular
         }
         RowLayout {
             Layout.fillWidth: true
             Layout.fillHeight: true
             Layout.alignment: Qt.AlignHCenter
-            LQtIconWithTexts {
+            LQtEllipseButtonWithTexts {
                 iconSource: "qrc:/assets/fan.svg"
                 topic: "Fan Speed"
                 subtopic: "3 Level - Off"
             }
-            LQtIconWithTexts {
+            LQtEllipseButtonWithTexts {
                 iconSource: "qrc:/assets/time.svg"
                 topic: "Timer"
                 subtopic: "7 Hours - Off"
             }
-            LQtIconWithTexts {
+            LQtEllipseButtonWithTexts {
                 iconSource: "qrc:/assets/shine.svg"
                 topic: "Auto Mode"
                 subtopic: "On"

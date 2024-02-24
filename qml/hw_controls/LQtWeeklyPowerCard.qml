@@ -18,6 +18,7 @@ PaddedRectangle {
         anchors.margins: 5
         RowLayout {
             Layout.fillWidth: true
+            Layout.fillHeight: true
             Text {
                 text: "Week"
                 font.bold: true
@@ -33,6 +34,7 @@ PaddedRectangle {
         }
         RowLayout {
             Layout.fillWidth: true
+            Layout.fillHeight: true
             LQtProgressBar {
                 Layout.fillWidth: true
                 value: 0
@@ -70,6 +72,8 @@ PaddedRectangle {
             }
         }
         RowLayout {
+            Layout.fillHeight: true
+            Layout.fillWidth: true
             Text {
                 text: "12.8"
                 font.bold: true

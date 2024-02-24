@@ -15,6 +15,7 @@ Item {
         ProgressBar {
             id: progressBarId
             Layout.alignment: Qt.AlignHCenter
+            Layout.fillHeight: true
             from: 0
             to: 100
             padding: 2
@@ -40,6 +41,8 @@ Item {
         Text {
             id: textId
             Layout.alignment: Qt.AlignHCenter
+            Layout.fillHeight: true
+            Layout.fillWidth: true
             font.bold: true
             font.pointSize: 14
         }

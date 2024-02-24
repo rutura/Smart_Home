@@ -15,7 +15,7 @@ Item {
             name: "menu item"
             source: "qrc:/assets/item.svg"
         }
-        Text {
+        Label {
             id: menuTextId
             font.bold: true
             font.pointSize: 16

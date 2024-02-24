@@ -16,7 +16,7 @@ PaddedRectangle {
         id: containerId
         anchors.fill: parent
         anchors.margins: 5
-        Text {
+        Label {
             text: "Nest Learning"
             font.bold: true
             font.pointSize: 16
