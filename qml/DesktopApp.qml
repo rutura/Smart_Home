@@ -3,13 +3,13 @@ import QtQuick.Controls.Material
 import QtQuick.VirtualKeyboard
 import QtQuick.Layouts
 import "drawer"
-import "living_room"
+import "room_controls"
 import "hw_controls"
 
 Window {
     id: window
     visible: true
-    visibility: Window.Maximized
+    // visibility: Window.Maximized
     minimumWidth: 1024
     minimumHeight: 720
     title: qsTr("SmartHome")
@@ -18,6 +18,7 @@ Window {
     Material.accent: Material.Blue
 
     PaddedRectangle {
+        id: mainContainerId
         anchors.fill: parent
         color: "#EAEAEA"
 
@@ -25,13 +26,16 @@ Window {
             id: lqtDrawerId
             height: parent.height
             visible: true
+            onMenuItemSelected: index => {
+                mainContainerId.state = index;
+            }
         }
 
         RowLayout {
             anchors.fill: parent
             spacing: 10
-            LQtLivingRoom {
-                id: livingRoomId
+            LQtRoom {
+                id: roomId
                 Layout.fillHeight: true
                 Layout.fillWidth: true
                 Layout.margins: 5
@@ -46,6 +50,53 @@ Window {
                 Layout.margins: 5
             }
         }
+
+        state: "2"
+        states: [
+            State {
+                name: "0"
+                PropertyChanges {
+                    target: roomId
+                    roomNameLabel: "Entrance"
+                }
+            },
+            State {
+                name: "1"
+                PropertyChanges {
+                    target: roomId
+                    roomNameLabel: "Backyard"
+                }
+            },
+            State {
+                name: "2"
+                PropertyChanges {
+                    target: roomId
+                    roomNameLabel: "Living Room"
+                }
+            },
+            State {
+                name: "3"
+                PropertyChanges {
+                    target: roomId
+                    roomNameLabel: "HallWay"
+                }
+            },
+            State {
+                name: "4"
+                PropertyChanges {
+                    target: roomId
+                    roomNameLabel: "Bedroom"
+                    videoFeedVisible: false
+                }
+            },
+            State {
+                name: "5"
+                PropertyChanges {
+                    target: roomId
+                    roomNameLabel: "Front Door"
+                }
+            }
+        ]
     }
 
     InputPanel {

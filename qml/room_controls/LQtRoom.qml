@@ -9,22 +9,20 @@ PaddedRectangle {
     radius: 10
     Material.elevation: 2
 
+    property alias roomNameLabel: roomNameId.text
     signal navigationClicked
-
+    property bool videoFeedVisible: true
     ColumnLayout {
         id: containerId
         anchors.fill: parent
         anchors.margins: 5
         Text {
-            Layout.fillWidth: true
             text: qsTr("EDIT")
-            font.pointSize: 14
-            color: Material.primaryTextColor
+            font.pointSize: 15
         }
         RowLayout {
-            Layout.fillWidth: true
-            Text {
-                text: "Living Room"
+            Label {
+                id: roomNameId
                 font.pointSize: 18
                 font.bold: true
             }
@@ -40,12 +38,13 @@ PaddedRectangle {
                 text: "32°"
             }
         }
-        Text {
+        Label {
             text: "Accessories"
             font.pointSize: 15
         }
         GridLayout {
             Layout.fillWidth: true
+            Layout.fillHeight: true
             columns: 3
             LQtAccessory {
                 Layout.fillWidth: true
@@ -85,16 +84,17 @@ PaddedRectangle {
                 status: "Not playing"
                 currentSong: "Arpeggi"
                 currentArtist: "Kelly Lee Owens"
-                currentTime: "1:27"
-                songDuration: "3:30"
             }
         }
-        Text {
+        Label {
             text: "Security Cameras"
             font.pointSize: 14
+            visible: videoFeedVisible
         }
         LQtVideoFeed {
             Layout.fillWidth: true
+            Layout.fillHeight: true
+            visible: videoFeedVisible
             feed: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
         }
         RowLayout {
@@ -105,6 +105,7 @@ PaddedRectangle {
             }
             RangeSlider {
                 Layout.fillWidth: true
+                visible: videoFeedVisible
                 from: 1
                 to: 100
                 first.value: 25

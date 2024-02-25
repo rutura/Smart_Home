@@ -17,9 +17,8 @@ PaddedRectangle {
         anchors.fill: parent
         anchors.margins: 5
         RowLayout {
-            Layout.fillWidth: true
             Layout.fillHeight: true
-            Text {
+            Label {
                 text: "Week"
                 font.bold: true
                 font.pointSize: 16
@@ -27,53 +26,57 @@ PaddedRectangle {
             Item {
                 Layout.fillWidth: true
             }
-            Text {
+            Label {
                 text: "Jan 11-17"
                 font.pointSize: 16
             }
         }
         RowLayout {
-            Layout.fillWidth: true
-            Layout.fillHeight: true
             LQtProgressBar {
                 Layout.fillWidth: true
+                Layout.fillHeight: true
                 value: 0
                 text: "M"
             }
             LQtProgressBar {
                 Layout.fillWidth: true
+                Layout.fillHeight: true
                 value: 0
                 text: "T"
             }
             LQtProgressBar {
                 Layout.fillWidth: true
+                Layout.fillHeight: true
                 value: 0
                 text: "W"
             }
             LQtProgressBar {
                 Layout.fillWidth: true
+                Layout.fillHeight: true
                 value: 0
                 text: "T"
             }
             LQtProgressBar {
                 Layout.fillWidth: true
+                Layout.fillHeight: true
                 value: 0
                 text: "F"
             }
             LQtProgressBar {
                 Layout.fillWidth: true
+                Layout.fillHeight: true
                 value: 0
                 text: "S"
             }
             LQtProgressBar {
                 Layout.fillWidth: true
+                Layout.fillHeight: true
                 value: 20
                 text: "S"
             }
         }
         RowLayout {
             Layout.fillHeight: true
-            Layout.fillWidth: true
             Text {
                 text: "12.8"
                 font.bold: true

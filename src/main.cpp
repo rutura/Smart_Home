@@ -9,7 +9,11 @@ int main(int argc, char *argv[])
   QGuiApplication app(argc, argv);
 
   QQmlApplicationEngine engine;
-  const QUrl url(u"qrc:/SmartHome/qml/Main.qml"_qs);
+#if defined(Q_OS_ANDROID) || defined(Q_OS_IOS)
+  const QUrl url(u"qrc:/SmartHome/qml/MobileApp.qml"_qs);
+#else
+  const QUrl url(u"qrc:/SmartHome/qml/DesktopApp.qml"_qs);
+#endif
   QObject::connect(
     &engine,
     &QQmlApplicationEngine::objectCreationFailed,

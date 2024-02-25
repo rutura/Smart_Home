@@ -7,7 +7,8 @@ PaddedRectangle {
     implicitWidth: containerId.implicitWidth
 
     Material.elevation: 2
-    radius: containerId.implicitWidth / 8
+
+    radius: containerId.implicitWidth / 16
     border.width: 1
     border.color: "gray"
     color: "transparent"
@@ -15,38 +16,38 @@ PaddedRectangle {
     property alias iconSource: accessoryIconId.source
     property alias title: accessoryTitleId.text
     property alias status: accessoryStatusId.text
-    property bool showInfo: false
+    property alias currentSong: musicId.currentSong
+    property alias currentArtist: musicId.currentArtist
 
-    ColumnLayout {
+    RowLayout {
         id: containerId
         anchors.fill: parent
-        anchors.margins: 5
-        RowLayout {
-            Layout.fillWidth: true
+        anchors.margins: 8
+        ColumnLayout {
             Layout.fillHeight: true
+            Layout.fillWidth: true
             IconImage {
                 id: accessoryIconId
-                name: "AccessoryIcon"
+                name: "accessory"
             }
             Item {
-                Layout.fillWidth: true
+                Layout.fillHeight: true
             }
-            RoundButton {
-                icon.source: "qrc:/assets/info.svg"
-                icon.name: "info"
-                visible: showInfo
+            Text {
+                id: accessoryTitleId
+                font.bold: true
+                font.pointSize: 18
+            }
+            Text {
+                id: accessoryStatusId
             }
         }
         Item {
+            Layout.fillWidth: true
+        }
+        LQtMusic {
+            id: musicId
             Layout.fillHeight: true
-        }
-        Text {
-            id: accessoryTitleId
-            font.bold: true
-            font.pointSize: 18
-        }
-        Text {
-            id: accessoryStatusId
         }
     }
 }

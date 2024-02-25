@@ -16,7 +16,8 @@ qt_add_qml_module(appSmartHome
     URI SmartHome
     VERSION 1.0
     QML_FILES
-        qml/Main.qml
+    qml/DesktopApp.qml
+    qml/MobileApp.qml
         #drawer
         qml/drawer/LQtDrawer.qml
         qml/drawer/LQtIconButtonWithText.qml
@@ -24,13 +25,15 @@ qt_add_qml_module(appSmartHome
         qml/drawer/LQtAutomatedItem.qml
         qml/drawer/LQtProfile.qml
         qml/drawer/LQtSearchBar.qml
-        #living room
-        qml/living_room/LQtLivingRoom.qml
-        qml/living_room/LQtIconWithText.qml
-        qml/living_room/LQtAccessory.qml
-        qml/living_room/LQtAccessoryWithMusic.qml
-        qml/living_room/LQtVideoFeed.qml
-        qml/living_room/LQtFeedInscribed.qml
+        #room_controls
+        qml/room_controls/LQtRoom.qml
+        qml/room_controls/LQtIconWithText.qml
+        qml/room_controls/LQtAccessory.qml
+        qml/room_controls/LQtAccessoryWithMusic.qml
+        qml/room_controls/LQtVideoFeed.qml
+        qml/room_controls/LQtFeedInscribed.qml
+        qml/room_controls/LQtSlider.qml
+        qml/room_controls/LQtMusic.qml
         #hw_controls
         qml/hw_controls/LQtControlsPanel.qml
         qml/hw_controls/LQtIconsButton.qml
@@ -39,9 +42,8 @@ qt_add_qml_module(appSmartHome
         qml/hw_controls/LQtWeeklyPowerCard.qml
         qml/hw_controls/LQtProgressBar.qml
         qml/hw_controls/LQtDial.qml
-        qml/living_room/LQtSlider.qml
-        qml/components/CircularSlider.qml
         qml/hw_controls/LQtIconWithTexts.qml
+        qml/components/CircularSlider.qml
 )
 
 qt_add_resources(appSmartHome "assets"

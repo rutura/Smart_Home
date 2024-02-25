@@ -52,7 +52,7 @@ PaddedRectangle {
         }
         LQtFeedInscribed {
             topic: "1025 Sacana Street"
-            subtopic: "Rita Leila is ringing the door bell"
+            subtopic: "Rita Leila is ringing \n the door bell"
             feed: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
         }
     }

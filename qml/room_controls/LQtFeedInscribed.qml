@@ -21,16 +21,20 @@ Item {
     ColumnLayout {
         id: containerId
         anchors.fill: parent
-        Text {
+        Label {
             id: topicId
             Layout.alignment: Qt.AlignHCenter
-            font.pointSize: 24
+            Layout.fillWidth: true
+            Layout.fillHeight: true
+            font.pointSize: 18
             font.bold: true
         }
-        Text {
+        Label {
             id: subtopicId
             Layout.alignment: Qt.AlignHCenter
-            wrapMode: Text.Wrap
+            Layout.fillWidth: true
+            Layout.fillHeight: true
+            wrapMode: Text.WrapAtWordBoundaryOrAnywhere
         }
         RoundButton {
             id: lockId

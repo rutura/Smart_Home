@@ -8,6 +8,8 @@ Item {
 
     property alias text: menuTextId.text
 
+    signal itemSelected
+
     RowLayout {
         id: containerId
         anchors.fill: parent
@@ -23,9 +25,7 @@ Item {
     }
     MouseArea {
         anchors.fill: parent
-        onClicked: {
-            console.log("Clicked");
-        }
+        onClicked: itemSelected()
         hoverEnabled: true
     }
 }

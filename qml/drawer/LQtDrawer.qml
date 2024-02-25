@@ -8,6 +8,8 @@ Drawer {
     implicitHeight: containerId.implicitHeight
     implicitWidth: containerId.implicitWidth
 
+    signal menuItemSelected(real index)
+
     PaddedRectangle {
         anchors.fill: parent
         anchors.margins: 5
@@ -84,21 +86,45 @@ Drawer {
                 Layout.fillWidth: true
                 LQtMenuItem {
                     text: "Entrance"
+                    onItemSelected: {
+                        menuItemSelected(0);
+                        drawerId.close();
+                    }
                 }
                 LQtMenuItem {
                     text: "Backyard"
+                    onItemSelected: {
+                        menuItemSelected(1);
+                        drawerId.close();
+                    }
                 }
                 LQtMenuItem {
                     text: "Living Room"
+                    onItemSelected: {
+                        menuItemSelected(2);
+                        drawerId.close();
+                    }
                 }
                 LQtMenuItem {
                     text: "Hallway"
+                    onItemSelected: {
+                        menuItemSelected(3);
+                        drawerId.close();
+                    }
                 }
                 LQtMenuItem {
                     text: "Bedroom"
+                    onItemSelected: {
+                        menuItemSelected(4);
+                        drawerId.close();
+                    }
                 }
                 LQtMenuItem {
                     text: "Front Door"
+                    onItemSelected: {
+                        menuItemSelected(5);
+                        drawerId.close();
+                    }
                 }
             }
             Text {
