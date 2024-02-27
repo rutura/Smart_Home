@@ -6,7 +6,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 find_package(Qt6 6.4 REQUIRED COMPONENTS Quick Multimedia)
 
-qt_standard_project_setup()
+qt_standard_project_setup(REQUIRES 6.5)
 
 qt_add_executable(appSmartHome
     src/main.cpp
@@ -90,6 +90,16 @@ set_target_properties(appSmartHome PROPERTIES
     MACOSX_BUNDLE TRUE
     WIN32_EXECUTABLE TRUE
 )
+
+if(ANDROID)
+    set_target_properties(appSmartHome PROPERTIES
+        QT_ANDROID_ABIS "armeabi-v7a;arm64-v8a;x86;x86_64"
+        QT_ANDROID_BUILD_ALL_ABIS ON
+        QT_ANDROID_MIN_SDK_VERSION 28
+        QT_ANDROID_TARGET_SDK_VERSION 34
+        QT_ANDROID_PACKAGE_SOURCE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/android/"
+    )
+endif()
 
 target_link_libraries(appSmartHome
     PRIVATE Qt6::Quick Qt6::Multimedia
