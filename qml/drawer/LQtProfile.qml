@@ -1,6 +1,7 @@
 import QtQuick
 import QtQuick.Controls
 import QtQuick.Layouts
+import SmartHome
 
 Item {
     implicitHeight: containerId.implicitHeight
@@ -16,6 +17,7 @@ Item {
         IconImage {
             id: iconId
             name: "userProfile"
+            color: Colors.primaryColor
         }
         ColumnLayout {
             Layout.fillWidth: true
@@ -24,10 +26,12 @@ Item {
                 id: usernameId
                 font.pointSize: 20
                 font.bold: true
+                color: Colors.primaryTextColor
             }
             Text {
                 id: roleId
                 font.italic: true
+                color: Colors.primaryTextColor
             }
         }
         IconImage {
@@ -35,6 +39,7 @@ Item {
             fillMode: Image.PreserveAspectFit
             source: "qrc:/assets/right.svg"
             name: "right carret"
+            color: Colors.primaryColor
         }
     }
 }

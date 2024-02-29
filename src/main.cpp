@@ -16,7 +16,6 @@ int main(int argc, char *argv[])
       &app,
       []() { QCoreApplication::exit(-1); },
       Qt::QueuedConnection);
-
 #if defined(Q_OS_ANDROID) || defined(Q_OS_IOS)
   // const QUrl url(u"qrc:/SmartHome/qml/MobileApp.qml"_qs);
    engine.loadFromModule("SmartHome", "MobileApp");

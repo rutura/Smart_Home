@@ -1,6 +1,7 @@
 import QtQuick
 import QtQuick.Controls
 import QtQuick.Layouts
+import SmartHome
 
 Item {
     implicitHeight: containerId.height
@@ -14,9 +15,11 @@ Item {
         IconImage {
             id: iconId
             name: "Icon"
+            color: Colors.primaryColor
         }
         Text {
             id: textId
+            color: Colors.primaryTextColor
         }
     }
 }

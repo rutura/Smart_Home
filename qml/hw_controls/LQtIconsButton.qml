@@ -1,6 +1,7 @@
 import QtQuick
 import QtQuick.Layouts
 import QtQuick.Controls
+import SmartHome
 
 PaddedRectangle {
     implicitHeight: containerId.implicitHeight
@@ -25,18 +26,23 @@ PaddedRectangle {
             id: state1TextId
             Layout.alignment: Qt.AlignVCenter
             Layout.leftMargin: 5
+            color: Colors.primaryTextColor
         }
         Text {
             id: state2TextId
             Layout.alignment: Qt.AlignVCenter
             font.bold: true
             font.pointSize: 14
+            color: Colors.primaryTextColor
         }
         RoundButton {
             id: roundButtonId
             Layout.alignment: Qt.AlignVCenter
             Layout.rightMargin: 5
-            icon.name: "tooling button"
+            icon {
+                name: "Tooling button"
+                color: Colors.primaryColor
+            }
             onClicked: {
                 isIconClicked = !isIconClicked;
                 iconClicked();

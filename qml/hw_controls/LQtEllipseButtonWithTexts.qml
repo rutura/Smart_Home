@@ -1,6 +1,7 @@
 import QtQuick
 import QtQuick.Controls
 import QtQuick.Layouts
+import SmartHome
 
 Item {
     implicitHeight: containerId.implicitHeight
@@ -16,17 +17,22 @@ Item {
         RoundButton {
             id: iconId
             Layout.alignment: Qt.AlignHCenter
-            icon.name: "buttonIcon"
+            icon {
+                name: "buttonIcon"
+                color: Colors.primaryColor
+            }
             checkable: true
         }
         Label {
             id: topicId
             Layout.alignment: Qt.AlignHCenter
             font.bold: true
+            color: Colors.primaryTextColor
         }
         Label {
             id: subtopicId
             Layout.alignment: Qt.AlignHCenter
+            color: Colors.primaryTextColor
         }
     }
 }

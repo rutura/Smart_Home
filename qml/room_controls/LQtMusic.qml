@@ -1,6 +1,7 @@
 import QtQuick
 import QtQuick.Controls
 import QtQuick.Layouts
+import SmartHome
 
 Item {
     implicitHeight: containerId.implicitHeight
@@ -18,27 +19,38 @@ Item {
             Layout.alignment: Qt.AlignHCenter
             Layout.fillHeight: true
             font.bold: true
+            color: Colors.primaryTextColor
         }
         Label {
             id: currentArtistId
             Layout.alignment: Qt.AlignHCenter
             Layout.fillHeight: true
+            color: Colors.primaryTextColor
         }
         RowLayout {
             id: musicControlsId
             Layout.alignment: Qt.AlignHCenter
             Layout.fillHeight: true
             RoundButton {
-                icon.source: "qrc:/assets/backward.svg"
-                icon.name: "backward"
+                icon {
+                    source: "qrc:/assets/backward.svg"
+                    name: "backward"
+                    color: Colors.primaryColor
+                }
             }
             RoundButton {
-                icon.source: "qrc:/assets/play.svg"
-                icon.name: "play_or_pause"
+                icon {
+                    source: "qrc:/assets/play.svg"
+                    name: "play_or_pause"
+                    color: Colors.primaryColor
+                }
             }
             RoundButton {
-                icon.source: "qrc:/assets/forward.svg"
-                icon.name: "forward"
+                icon {
+                    source: "qrc:/assets/forward.svg"
+                    name: "forward"
+                    color: Colors.primaryColor
+                }
             }
         }
         LQtSlider {
@@ -53,6 +65,7 @@ Item {
             Label {
                 id: currentTimeId
                 text: "1:21"
+                color: Colors.primaryTextColor
             }
             Item {
                 Layout.fillWidth: true
@@ -60,6 +73,7 @@ Item {
             Label {
                 id: songDurationId
                 text: "-2:17"
+                color: Colors.primaryTextColor
             }
         }
     }

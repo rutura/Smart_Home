@@ -2,6 +2,7 @@ import QtQuick
 import QtQuick.Controls
 import QtQuick.Layouts
 import QtMultimedia
+import SmartHome
 
 Item {
     id: rootId
@@ -28,6 +29,7 @@ Item {
             Layout.fillHeight: true
             font.pointSize: 18
             font.bold: true
+            color: Colors.primaryTextColor
         }
         Label {
             id: subtopicId
@@ -35,11 +37,15 @@ Item {
             Layout.fillWidth: true
             Layout.fillHeight: true
             wrapMode: Text.WrapAtWordBoundaryOrAnywhere
+            color: Colors.primaryTextColor
         }
         RoundButton {
             id: lockId
             Layout.alignment: Qt.AlignHCenter
-            icon.source: "qrc:/assets/unlock.svg"
+            icon {
+                name: "Unlock"
+                source: "qrc:/assets/unlock.svg"
+            }
         }
 
         Rectangle {

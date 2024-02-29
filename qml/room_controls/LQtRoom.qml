@@ -1,6 +1,7 @@
 import QtQuick
 import QtQuick.Controls
 import QtQuick.Layouts
+import SmartHome
 
 PaddedRectangle {
 
@@ -12,19 +13,32 @@ PaddedRectangle {
     property alias roomNameLabel: roomNameId.text
     signal navigationClicked
     property bool videoFeedVisible: true
+
+    color: Colors.secondaryBackgroundColor
+
     ColumnLayout {
         id: containerId
         anchors.fill: parent
         anchors.margins: 5
-        Text {
-            text: qsTr("EDIT")
-            font.pointSize: 15
+        RowLayout {
+            Text {
+                text: qsTr("EDIT")
+                font.pointSize: 15
+                color: Colors.primaryTextColor
+            }
+            Item {
+                Layout.fillWidth: true
+            }
+            LQtThemeSwitch {
+                id: lqtThemeSwitch
+            }
         }
         RowLayout {
             Label {
                 id: roomNameId
                 font.pointSize: 18
                 font.bold: true
+                color: Colors.primaryTextColor
             }
             Item {
                 Layout.fillWidth: true
@@ -41,6 +55,7 @@ PaddedRectangle {
         Label {
             text: "Accessories"
             font.pointSize: 15
+            color: Colors.primaryTextColor
         }
         GridLayout {
             Layout.fillWidth: true
@@ -90,6 +105,7 @@ PaddedRectangle {
             text: "Security Cameras"
             font.pointSize: 14
             visible: videoFeedVisible
+            color: Colors.primaryTextColor
         }
         LQtVideoFeed {
             Layout.fillWidth: true
@@ -99,8 +115,11 @@ PaddedRectangle {
         }
         RowLayout {
             RoundButton {
-                icon.source: "qrc:/assets/navigation_toolbar_left.svg"
-                icon.name: "navigation drawer"
+                icon {
+                    name: "navigation drawer"
+                    source: "qrc:/assets/navigation_toolbar_left.svg"
+                    color: Colors.primaryColor
+                }
                 onClicked: navigationClicked()
             }
             RangeSlider {

@@ -1,6 +1,7 @@
 import QtQuick
 import QtQuick.Controls
 import QtQuick.Layouts
+import SmartHome
 
 Item {
     implicitHeight: containerId.implicitHeight
@@ -16,16 +17,19 @@ Item {
         IconImage {
             id: iconId
             name: "automatedItem"
+            color: Colors.primaryColor
         }
         ColumnLayout {
             Layout.fillWidth: true
             Label {
                 id: topicId
                 font.bold: true
+                color: Colors.primaryTextColor
             }
             Label {
                 id: messageId
                 font.italic: true
+                color: Colors.primaryTextColor
             }
         }
     }

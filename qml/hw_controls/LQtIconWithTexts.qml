@@ -1,6 +1,7 @@
 import QtQuick
 import QtQuick.Controls
 import QtQuick.Layouts
+import SmartHome
 
 Item {
     implicitHeight: containerId.implicitHeight
@@ -17,6 +18,7 @@ Item {
             id: iconId
             Layout.alignment: Qt.AlignHCenter
             name: "itemIcon"
+            color: Colors.primaryColor
         }
         ColumnLayout {
             Layout.alignment: Qt.AlignHCenter
@@ -25,11 +27,13 @@ Item {
                 Layout.alignment: Qt.AlignHCenter
                 font.bold: true
                 font.pointSize: 18
+                color: Colors.primaryTextColor
             }
             Text {
                 id: subtopicId
                 Layout.alignment: Qt.AlignHCenter
                 wrapMode: Text.Wrap
+                color: Colors.primaryTextColor
             }
         }
     }

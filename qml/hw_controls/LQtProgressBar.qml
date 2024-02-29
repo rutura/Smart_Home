@@ -1,6 +1,7 @@
 import QtQuick
 import QtQuick.Controls
 import QtQuick.Layouts
+import SmartHome
 
 Item {
     implicitHeight: containerId.implicitHeight
@@ -45,6 +46,7 @@ Item {
             Layout.fillWidth: true
             font.bold: true
             font.pointSize: 14
+            color: Colors.primaryTextColor
         }
     }
 }

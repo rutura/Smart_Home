@@ -12,6 +12,11 @@ qt_add_executable(appSmartHome
     src/main.cpp
 )
 
+set_source_files_properties(qml/Colors.qml
+    PROPERTIES
+        QT_QML_SINGLETON_TYPE true
+    )
+
 qt_add_qml_module(appSmartHome
     URI SmartHome
     VERSION 1.0
@@ -43,7 +48,12 @@ qt_add_qml_module(appSmartHome
         qml/hw_controls/LQtProgressBar.qml
         qml/hw_controls/LQtDial.qml
         qml/hw_controls/LQtIconWithTexts.qml
+
         qml/components/CircularSlider.qml
+        qml/Colors.qml
+        qml/room_controls/LQtThemeSwitch.qml
+
+
 )
 
 qt_add_resources(appSmartHome "assets"
@@ -79,6 +89,8 @@ qt_add_resources(appSmartHome "assets"
     assets/fan.svg
     assets/time.svg
     assets/flash.svg
+    assets/sparkling.svg
+    assets/dark.svg
 )
 # Qt for iOS sets MACOSX_BUNDLE_GUI_IDENTIFIER automatically since Qt 6.1.
 # If you are developing for iOS or macOS you should consider setting an

@@ -5,6 +5,7 @@ import QtQuick.Layouts
 import "drawer"
 import "room_controls"
 import "hw_controls"
+import SmartHome
 
 Window {
     id: window
@@ -14,13 +15,13 @@ Window {
     minimumHeight: 720
     title: qsTr("SmartHome")
 
-    Material.theme: Material.Light
+    Material.theme: Colors.getCurrentTheme()
     Material.accent: Material.Blue
 
     PaddedRectangle {
         id: mainContainerId
         anchors.fill: parent
-        color: "#EAEAEA"
+        color: Colors.primaryBackgroundColor
 
         LQtDrawer {
             id: lqtDrawerId

@@ -1,6 +1,7 @@
 import QtQuick
 import QtQuick.Controls
 import QtQuick.Layouts
+import SmartHome
 
 Drawer {
     id: drawerId
@@ -10,39 +11,56 @@ Drawer {
 
     signal menuItemSelected(real index)
 
+    property var menuChildren: [entranceId, backyardId, livingroomId, hallwayId, bedroomId, frontdoorId]
     PaddedRectangle {
-        anchors.fill: parent
-        anchors.margins: 5
+        anchors {
+            top: drawerId.Top
+            topMargin: 0
+            bottom: drawerId.Bottom
+            bottomMargin: 0
+        }
+        color: Colors.secondaryBackgroundColor
+        height: parent.height
         ColumnLayout {
             id: containerId
             anchors.fill: parent
             RowLayout {
                 Layout.fillWidth: true
                 RoundButton {
-                    icon.name: "navigation_toolbar_left"
-                    icon.source: "qrc:/assets/navigation_toolbar_left.svg"
+                    icon {
+                        name: "navigation_toolbar_left"
+                        source: "qrc:/assets/navigation_toolbar_left.svg"
+                        color: Colors.primaryColor
+                    }
                     onClicked: {
-                        drawerId.visible = !drawerId.visible;
+                        drawerI16d.visible = !drawerId.visible;
                     }
                 }
                 Item {
                     Layout.fillWidth: true
                 }
                 RoundButton {
-                    icon.name: "home"
-                    icon.source: "qrc:/assets/home.svg"
+                    icon {
+                        name: "home"
+                        source: "qrc:/assets/home.svg"
+                        color: Colors.primaryColor
+                    }
                 }
                 RoundButton {
                     id: plusId
-                    icon.name: "plus"
-                    icon.source: "qrc:/assets/plus.svg"
+                    icon {
+                        name: "plus"
+                        source: "qrc:/assets/plus.svg"
+                        color: Colors.primaryColor
+                    }
                 }
             }
-            Text {
+            Label {
                 Layout.alignment: Qt.AlignHCenter
                 text: qsTr("YuHang's Home")
                 font.bold: true
-                font.pointSize: 20
+                font.pointSize: 18
+                color: Colors.primaryTextColor
             }
             LQtSearchBar {
                 Layout.alignment: Qt.AlignHCenter
@@ -51,85 +69,121 @@ Drawer {
                     console.log("Search Text");
                 }
             }
-            Text {
+            Label {
                 Layout.alignment: Qt.AlignLeft
                 text: qsTr("SCENES")
+                color: Colors.primaryTextColor
             }
             RowLayout {
                 Layout.fillWidth: true
                 LQtIconButtonWithText {
-                    iconName: "music"
                     iconSource: "qrc:/assets/music.svg"
                     text: "Listen to Music"
                 }
                 LQtIconButtonWithText {
-                    iconName: "relaxing"
                     iconSource: "qrc:/assets/relaxing.svg"
                     text: "Relaxing"
                 }
                 LQtIconButtonWithText {
-                    iconName: "arriving_home"
                     iconSource: "qrc:/assets/arriving_home.svg"
                     text: "Arrive Home"
                 }
                 LQtIconButtonWithText {
-                    iconName: "GoodNight"
                     iconSource: "qrc:/assets/moon.svg"
                     text: "Good Night"
                 }
             }
-            Text {
+            Label {
                 Layout.alignment: Qt.AlignLeft
                 text: qsTr("ROOMS")
+                color: Colors.primaryTextColor
             }
             ColumnLayout {
+                id: menuContainerId
                 Layout.fillWidth: true
                 LQtMenuItem {
+                    id: entranceId
+                    Layout.fillWidth: true
                     text: "Entrance"
                     onItemSelected: {
                         menuItemSelected(0);
                         drawerId.close();
+                        menuChildren.forEach(item => {
+                                item.color = Colors.tertiaryBackgroundColor;
+                            });
+                        entranceId.color = Colors.containerColor;
                     }
                 }
                 LQtMenuItem {
+                    id: backyardId
+                    Layout.fillWidth: true
                     text: "Backyard"
                     onItemSelected: {
                         menuItemSelected(1);
                         drawerId.close();
+                        menuChildren.forEach(item => {
+                                item.color = Colors.tertiaryBackgroundColor;
+                            });
+                        backyardId.color = Colors.containerColor;
                     }
                 }
                 LQtMenuItem {
+                    id: livingroomId
+                    Layout.fillWidth: true
                     text: "Living Room"
                     onItemSelected: {
                         menuItemSelected(2);
                         drawerId.close();
+                        menuChildren.forEach(item => {
+                                item.color = Colors.tertiaryBackgroundColor;
+                            });
+                        livingroomId.color = Colors.containerColor;
                     }
                 }
                 LQtMenuItem {
+                    id: hallwayId
+                    Layout.fillWidth: true
                     text: "Hallway"
                     onItemSelected: {
                         menuItemSelected(3);
                         drawerId.close();
+                        menuChildren.forEach(item => {
+                                item.color = Colors.tertiaryBackgroundColor;
+                            });
+                        hallwayId.color = Colors.containerColor;
                     }
                 }
                 LQtMenuItem {
+                    id: bedroomId
+                    Layout.fillWidth: true
                     text: "Bedroom"
                     onItemSelected: {
                         menuItemSelected(4);
                         drawerId.close();
+                        menuChildren.forEach(item => {
+                                item.color = Colors.tertiaryBackgroundColor;
+                            });
+                        bedroomId.color = Colors.containerColor;
                     }
                 }
                 LQtMenuItem {
+                    id: frontdoorId
+                    Layout.fillWidth: true
                     text: "Front Door"
                     onItemSelected: {
                         menuItemSelected(5);
                         drawerId.close();
+                        menuChildren.forEach(item => {
+                                item.color = Colors.tertiaryBackgroundColor;
+                            });
+                        frontdoorId.color = Colors.containerColor;
                     }
                 }
             }
-            Text {
+            Label {
                 Layout.alignment: Qt.AlignLeft
                 text: qsTr("AUTOMATIONS")
+                color: Colors.primaryTextColor
             }
             ColumnLayout {
                 Layout.fillHeight: true

@@ -2,6 +2,7 @@ import QtQuick
 import QtQuick.Controls
 import QtQuick.Layouts
 import QtMultimedia
+import SmartHome
 
 PaddedRectangle {
     implicitHeight: containerId.implicitHeight
@@ -27,11 +28,15 @@ PaddedRectangle {
         id: containerId
         anchors.fill: parent
         ColumnLayout {
+            Layout.fillHeight: true
             RowLayout {
-                Button {
+                RoundButton {
                     id: liveId
-                    icon.source: "qrc:/assets/dot.svg"
-                    icon.name: "live"
+                    icon {
+                        name: "live"
+                        source: "qrc:/assets/dot.svg"
+                        color: Colors.primaryColor
+                    }
                     text: "Live"
                 }
                 Button {
@@ -51,6 +56,7 @@ PaddedRectangle {
             Layout.fillWidth: true
         }
         LQtFeedInscribed {
+            Layout.fillHeight: true
             topic: "1025 Sacana Street"
             subtopic: "Rita Leila is ringing \n the door bell"
             feed: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"

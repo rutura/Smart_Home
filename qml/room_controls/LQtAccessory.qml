@@ -1,6 +1,7 @@
 import QtQuick
 import QtQuick.Controls
 import QtQuick.Layouts
+import SmartHome
 
 PaddedRectangle {
     implicitHeight: containerId.implicitHeight
@@ -8,9 +9,9 @@ PaddedRectangle {
 
     Material.elevation: 2
     radius: containerId.implicitWidth / 8
-    border.width: 1
-    border.color: "gray"
-    color: "transparent"
+    // border.width: 1
+    // border.color: "gray"
+    color: Colors.tertiaryBackgroundColor
 
     property alias iconSource: accessoryIconId.source
     property alias title: accessoryTitleId.text
@@ -27,13 +28,17 @@ PaddedRectangle {
             IconImage {
                 id: accessoryIconId
                 name: "AccessoryIcon"
+                color: Colors.primaryColor
             }
             Item {
                 Layout.fillWidth: true
             }
             RoundButton {
-                icon.source: "qrc:/assets/info.svg"
-                icon.name: "info"
+                icon {
+                    name: "info"
+                    source: "qrc:/assets/info.svg"
+                    color: Colors.primaryColor
+                }
                 visible: showInfo
             }
         }
@@ -47,11 +52,13 @@ PaddedRectangle {
             Layout.fillHeight: true
             font.bold: true
             font.pointSize: 18
+            color: Colors.primaryTextColor
         }
         Text {
             id: accessoryStatusId
             Layout.fillWidth: true
             Layout.fillHeight: true
+            color: Colors.primaryTextColor
         }
     }
 }

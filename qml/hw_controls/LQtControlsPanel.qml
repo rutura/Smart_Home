@@ -2,6 +2,7 @@ import QtQuick
 import QtQuick.Controls
 import QtQuick.Layouts
 import QtQuick.Shapes
+import SmartHome
 
 PaddedRectangle {
     id: control
@@ -10,6 +11,8 @@ PaddedRectangle {
     radius: 10
 
     Material.elevation: 2
+
+    color: Colors.secondaryBackgroundColor
 
     ColumnLayout {
         id: containerId
