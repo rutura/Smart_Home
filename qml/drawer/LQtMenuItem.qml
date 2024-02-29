@@ -14,7 +14,7 @@ PaddedRectangle {
     property alias text: menuTextId.text
 
     signal itemSelected
-
+    color: Colors.secondaryBackgroundColor
     RowLayout {
         id: containerId
         anchors.fill: parent

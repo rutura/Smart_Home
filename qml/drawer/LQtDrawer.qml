@@ -13,14 +13,8 @@ Drawer {
 
     property var menuChildren: [entranceId, backyardId, livingroomId, hallwayId, bedroomId, frontdoorId]
     PaddedRectangle {
-        anchors {
-            top: drawerId.Top
-            topMargin: 0
-            bottom: drawerId.Bottom
-            bottomMargin: 0
-        }
+        anchors.fill: parent
         color: Colors.secondaryBackgroundColor
-        height: parent.height
         ColumnLayout {
             id: containerId
             anchors.fill: parent
@@ -33,7 +27,7 @@ Drawer {
                         color: Colors.primaryColor
                     }
                     onClicked: {
-                        drawerI16d.visible = !drawerId.visible;
+                        drawerId.visible = !drawerId.visible;
                     }
                 }
                 Item {
