@@ -1,0 +1,62 @@
+qt_add_executable(${APP_TARGET}
+        main.cpp
+)
+qt_add_resources(${APP_TARGET} "assets"
+        PREFIX /
+        FILES
+        assets/arriving_home.svg
+        assets/home.svg
+        assets/item.svg
+        assets/microphone.svg
+        assets/moon.svg
+        assets/music.svg
+        assets/navigation_toolbar_left.svg
+        assets/plus.svg
+        assets/relaxing.svg
+        assets/search.svg
+        assets/right.svg
+        assets/user.svg
+        assets/temperature.svg
+        assets/humidity.svg
+        assets/info.svg
+        assets/wifi.svg
+        assets/backward.svg
+        assets/dehumidifier.svg
+        assets/forward.svg
+        assets/ipod.svg
+        assets/play.svg
+        assets/tv.svg
+        assets/cooling.svg
+        assets/dot.svg
+        assets/unlock.svg
+        assets/power.svg
+        assets/shine.svg
+        assets/fan.svg
+        assets/time.svg
+        assets/flash.svg
+        assets/sparkling.svg
+        assets/dark.svg
+        assets/smart_home_100.svg
+        assets/user_24.svg
+        assets/password_24.svg
+        assets/email_24.svg
+)
+
+add_subdirectory(apps)
+add_subdirectory(constants)
+add_subdirectory(drawer)
+add_subdirectory(room)
+add_subdirectory(usage)
+add_subdirectory(user)
+
+target_link_libraries(${APP_TARGET}
+        PRIVATE
+        Qt6::Quick
+        Qt6::Multimedia
+        AppsLibplugin
+        AppConstantsLibplugin
+        AppDrawerLibplugin
+        AppRoomLibplugin
+        AppHWUsageLibplugin
+        AppUserLibplugin
+)

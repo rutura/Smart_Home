@@ -2,106 +2,20 @@ cmake_minimum_required(VERSION 3.16)
 
 project(SmartHome VERSION 0.1 LANGUAGES CXX)
 
+set(APP_TARGET appSmartHome)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_PREFIX_PATH  /opt/Qt/6.6.1/gcc_64/lib/cmake)#  set to cmake path of your choice
 
 find_package(Qt6 6.4 REQUIRED COMPONENTS Quick Multimedia)
 
 qt_standard_project_setup(REQUIRES 6.5)
 
-qt_add_executable(appSmartHome
-    src/main.cpp
-)
+add_subdirectory(src)
 
-set_source_files_properties(qml/Colors.qml
-    PROPERTIES
-        QT_QML_SINGLETON_TYPE true
-    )
-
-qt_add_qml_module(appSmartHome
-    URI SmartHome
-    VERSION 1.0
-    QML_FILES
-    qml/DesktopApp.qml
-    qml/MobileApp.qml
-        #drawer
-        qml/drawer/LQtDrawer.qml
-        qml/drawer/LQtIconButtonWithText.qml
-        qml/drawer/LQtMenuItem.qml
-        qml/drawer/LQtAutomatedItem.qml
-        qml/drawer/LQtProfile.qml
-        qml/drawer/LQtSearchBar.qml
-        #room_controls
-        qml/room_controls/LQtRoom.qml
-        qml/room_controls/LQtIconWithText.qml
-        qml/room_controls/LQtAccessory.qml
-        qml/room_controls/LQtAccessoryWithMusic.qml
-        qml/room_controls/LQtVideoFeed.qml
-        qml/room_controls/LQtFeedInscribed.qml
-        qml/room_controls/LQtSlider.qml
-        qml/room_controls/LQtMusic.qml
-        #hw_controls
-        qml/hw_controls/LQtControlsPanel.qml
-        qml/hw_controls/LQtIconsButton.qml
-        qml/hw_controls/LQtEllipseButtonWithTexts.qml
-        qml/hw_controls/LQtControlsCard.qml
-        qml/hw_controls/LQtWeeklyPowerCard.qml
-        qml/hw_controls/LQtProgressBar.qml
-        qml/hw_controls/LQtDial.qml
-        qml/hw_controls/LQtIconWithTexts.qml
-
-        qml/components/CircularSlider.qml
-        qml/Colors.qml
-        qml/room_controls/LQtThemeSwitch.qml
-
-        # login
-        qml/user/LQtLogin.qml
-
-)
-
-qt_add_resources(appSmartHome "assets"
-    PREFIX /
-    FILES
-    assets/arriving_home.svg
-    assets/home.svg
-    assets/item.svg
-    assets/microphone.svg
-    assets/moon.svg
-    assets/music.svg
-    assets/navigation_toolbar_left.svg
-    assets/plus.svg
-    assets/relaxing.svg
-    assets/search.svg
-    assets/right.svg
-    assets/user.svg
-    assets/temperature.svg
-    assets/humidity.svg
-    assets/info.svg
-    assets/wifi.svg
-    assets/backward.svg
-    assets/dehumidifier.svg
-    assets/forward.svg
-    assets/ipod.svg
-    assets/play.svg
-    assets/tv.svg
-    assets/cooling.svg
-    assets/dot.svg
-    assets/unlock.svg
-    assets/power.svg
-    assets/shine.svg
-    assets/fan.svg
-    assets/time.svg
-    assets/flash.svg
-    assets/sparkling.svg
-    assets/dark.svg
-    assets/smart_home_100.svg
-    assets/user_24.svg
-    assets/password_24.svg
-    assets/email_24.svg
-)
 # Qt for iOS sets MACOSX_BUNDLE_GUI_IDENTIFIER automatically since Qt 6.1.
 # If you are developing for iOS or macOS you should consider setting an
 # explicit, fixed bundle identifier manually though.
-set_target_properties(appSmartHome PROPERTIES
+set_target_properties(${APP_TARGET} PROPERTIES
 #    MACOSX_BUNDLE_GUI_IDENTIFIER com.example.appSmartHome
     MACOSX_BUNDLE_BUNDLE_VERSION ${PROJECT_VERSION}
     MACOSX_BUNDLE_SHORT_VERSION_STRING ${PROJECT_VERSION_MAJOR}.${PROJECT_VERSION_MINOR}
@@ -110,7 +24,7 @@ set_target_properties(appSmartHome PROPERTIES
 )
 
 if(ANDROID)
-    set_target_properties(appSmartHome PROPERTIES
+    set_target_properties(${APP_TARGET} PROPERTIES
         QT_ANDROID_ABIS "armeabi-v7a;arm64-v8a;x86;x86_64"
         QT_ANDROID_BUILD_ALL_ABIS ON
         QT_ANDROID_MIN_SDK_VERSION 28
@@ -119,12 +33,8 @@ if(ANDROID)
     )
 endif()
 
-target_link_libraries(appSmartHome
-    PRIVATE Qt6::Quick Qt6::Multimedia
-)
-
 include(GNUInstallDirs)
-install(TARGETS appSmartHome
+install(TARGETS ${APP_TARGET}
     BUNDLE DESTINATION .
     LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
     RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}

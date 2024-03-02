@@ -7,6 +7,8 @@ int main(int argc, char *argv[])
   qputenv("QT_IM_MODULE", QByteArray("qtvirtualkeyboard"));
 
   QGuiApplication app(argc, argv);
+  app.setOrganizationName("LearnQt.Guide");
+  app.setOrganizationDomain("learnqt.guide");
 
   QQmlApplicationEngine engine;
 
@@ -16,14 +18,13 @@ int main(int argc, char *argv[])
       &app,
       []() { QCoreApplication::exit(-1); },
       Qt::QueuedConnection);
+
+  engine.addImportPath(":/");
 #if defined(Q_OS_ANDROID) || defined(Q_OS_IOS)
-  // const QUrl url(u"qrc:/SmartHome/qml/MobileApp.qml"_qs);
-   engine.loadFromModule("SmartHome", "MobileApp");
+   engine.loadFromModule("Apps", "MobileApp");
 #else
-  // const QUrl url(u"qrc:/SmartHome/qml/DesktopApp.qml"_qs);
-   engine.loadFromModule("SmartHome", "DesktopApp");
+   engine.loadFromModule("Apps", "DesktopApp");
 #endif
-  // engine.load(url);
 
   return app.exec();
 }
