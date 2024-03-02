@@ -53,6 +53,8 @@ qt_add_qml_module(appSmartHome
         qml/Colors.qml
         qml/room_controls/LQtThemeSwitch.qml
 
+        # login
+        qml/user/LQtLogin.qml
 
 )
 
@@ -91,6 +93,10 @@ qt_add_resources(appSmartHome "assets"
     assets/flash.svg
     assets/sparkling.svg
     assets/dark.svg
+    assets/smart_home_100.svg
+    assets/user_24.svg
+    assets/password_24.svg
+    assets/email_24.svg
 )
 # Qt for iOS sets MACOSX_BUNDLE_GUI_IDENTIFIER automatically since Qt 6.1.
 # If you are developing for iOS or macOS you should consider setting an

@@ -5,6 +5,7 @@ import QtQuick.Layouts
 import "drawer"
 import "room_controls"
 import "hw_controls"
+import "user"
 
 Window {
     id: window
@@ -28,6 +29,12 @@ Window {
                 mainContainerId.state = index;
             }
         }
+        LQtLogin {
+            id: loginId
+            implicitHeight: parent.height
+            implicitWidth: parent.width
+        }
+
         ColumnLayout {
             anchors.fill: parent
             StackLayout {

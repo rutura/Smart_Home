@@ -5,6 +5,7 @@ import QtQuick.Layouts
 import "drawer"
 import "room_controls"
 import "hw_controls"
+import "user"
 import SmartHome
 
 Window {
@@ -30,6 +31,11 @@ Window {
             onMenuItemSelected: index => {
                 mainContainerId.state = index;
             }
+        }
+        LQtLogin {
+            id: loginId
+            implicitHeight: parent.height - (2 * parent.height / 8)
+            implicitWidth: parent.width / 2
         }
 
         RowLayout {
