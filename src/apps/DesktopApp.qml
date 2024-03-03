@@ -7,6 +7,7 @@ import AppDrawer
 import AppRoom
 import AppHWUsage
 import AppUser
+import AppUtils
 
 Window {
     id: window
@@ -18,6 +19,10 @@ Window {
 
     Material.theme: Colors.getCurrentTheme()
     Material.accent: Material.Blue
+
+    ToastManager{
+        id: toast
+    }
 
     PaddedRectangle {
         id: mainContainerId

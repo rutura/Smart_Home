@@ -1,4 +1,4 @@
-set(MODULE_NAME AppUser)
+set(MODULE_NAME AppUtils)
 set(LIB_NAME ${MODULE_NAME}Lib)
 
 qt_add_library(${LIB_NAME} STATIC)
@@ -7,12 +7,8 @@ set_target_properties(${LIB_NAME} PROPERTIES AUTOMOC ON)
 target_link_libraries(${LIB_NAME} PRIVATE Qt6::Quick)
 
 list(APPEND MODULE_QML_FILES
-        LQtLogin.qml
-        UserDatabase.qml
-)
-
-set_source_files_properties(UserDatabase.qml PROPERTIES
-        QT_QML_SINGLETON_TYPE  TRUE
+        ToastManager.qml
+        Toast.qml
 )
 
 qt_add_qml_module(${LIB_NAME}

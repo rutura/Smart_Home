@@ -48,6 +48,7 @@ add_subdirectory(drawer)
 add_subdirectory(room)
 add_subdirectory(usage)
 add_subdirectory(user)
+add_subdirectory(utils)
 
 target_link_libraries(${APP_TARGET}
         PRIVATE
@@ -59,4 +60,5 @@ target_link_libraries(${APP_TARGET}
         AppRoomLibplugin
         AppHWUsageLibplugin
         AppUserLibplugin
+        AppUtilsLibplugin
 )

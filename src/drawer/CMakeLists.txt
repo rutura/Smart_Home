@@ -21,5 +21,7 @@ qt_add_qml_module(${LIB_NAME}
         RESOURCE_PREFIX /
         QML_FILES
         ${MODULE_QML_FILES}
+        OUTPUT_DIRECTORY
+        "${CMAKE_BINARY_DIR}/${MODULE_NAME}"
 )
 

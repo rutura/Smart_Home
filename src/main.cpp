@@ -1,7 +1,6 @@
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
 
-
 int main(int argc, char *argv[])
 {
   qputenv("QT_IM_MODULE", QByteArray("qtvirtualkeyboard"));
