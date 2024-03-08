@@ -8,6 +8,12 @@ import QtQuick
  * @brief Manager that creates Toasts dynamically
  */
 ListView {
+
+    /**
+     * Private
+     */
+
+    id: root
     /**
      * Public
      */
@@ -19,14 +25,11 @@ ListView {
      * @param {real} duration Duration to show in milliseconds, defaults to 3000
      */
     function show(text, duration) {
-        model.insert(0, {text: text, duration: duration});
+        model.insert(0, {
+                text: text,
+                duration: duration
+            });
     }
-
-    /**
-     * Private
-     */
-
-    id: root
 
     z: Infinity
     spacing: 5
@@ -47,12 +50,13 @@ ListView {
         Component.onCompleted: {
             if (typeof duration === "undefined") {
                 show(text);
-            }
-            else {
+            } else {
                 show(text, duration);
             }
         }
     }
 
-    model: ListModel {id: model}
+    model: ListModel {
+        id: model
+    }
 }

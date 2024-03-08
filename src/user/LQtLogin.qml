@@ -36,10 +36,13 @@ Popup {
         }
     }
     background: null
-    contentItem: Pane {
+    contentItem: PaddedRectangle {
         id: paneId
         Material.elevation: 16
+        color: Colors.primaryBackgroundColor
+        radius: thisContainerId.implicitWidth / 8
         ColumnLayout {
+            id: thisContainerId
             anchors.fill: parent
             anchors.margins: 10
             Image {
@@ -217,36 +220,34 @@ Popup {
                 Layout.leftMargin: 10
                 Layout.rightMargin: 10
                 onClicked: {
-                    switch(paneId.state){
+                    switch (paneId.state) {
                     case "login":
-                        if(usernameId.text === '' || passwordId.text === ''){
+                        if (usernameId.text === '' || passwordId.text === '') {
                             usernameStatusId.visible = true;
                             passwordId.visible = true;
                             usernameStatusId.text = "Username or password is empty";
                             passwordStatusId.text = "Username or password is empty";
-
-                        }else {
+                        } else {
                             let result = UserDatabase.getUserByNameAndPassword(usernameId.text, passwordId.text);
-                            if(result.rows.length > 0){
-                                popupId.close()
-                            }else{
+                            if (result.rows.length > 0) {
+                                popupId.close();
+                            } else {
                                 toast.show("Wrong username or password", 1000);
                             }
                         }
-
                         break;
                     case "signup":
-                        if(usernameId.text === '' || passwordId.text === '' || confirmPasswordId.text === '' || emailId.text === ''){
-                           toast.show("At least one of the fields is empty", 3000);
+                        if (usernameId.text === '' || passwordId.text === '' || confirmPasswordId.text === '' || emailId.text === '') {
+                            toast.show("At least one of the fields is empty", 3000);
                             break;
                         }
-                        if(passwordId.text !== confirmPasswordId.text){
-                            confirmPasswordStatusId.visible = true
+                        if (passwordId.text !== confirmPasswordId.text) {
+                            confirmPasswordStatusId.visible = true;
                             confirmPasswordStatusId.text = "Password not equal";
                             break;
                         }
                         let result = UserDatabase.newUser(usernameId.text, emailId.text, passwordId.text);
-                        if(typeof result.insertId === "undefined"){
+                        if (typeof result.insertId === "undefined") {
                             toast.show("Failed to register user", 3000);
                         }
                         break;

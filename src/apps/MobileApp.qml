@@ -1,6 +1,6 @@
 import QtQuick
 import QtQuick.Controls.Material
-import QtQuick.VirtualKeyboard
+// import QtQuick.VirtualKeyboard
 import QtQuick.Layouts
 import AppConstants
 import AppDrawer
@@ -8,6 +8,7 @@ import AppRoom
 import AppHWUsage
 import AppUser
 import AppUtils
+import AppSettings
 
 Window {
     id: window
@@ -18,7 +19,7 @@ Window {
     Material.theme: Material.Light
     Material.accent: Material.Blue
 
-    ToastManager{
+    ToastManager {
         id: toast
     }
 
@@ -40,8 +41,13 @@ Window {
             implicitHeight: parent.height
             implicitWidth: parent.width
         }
-
+        LQtSettings {
+            id: lqtSetttings
+            visible: false
+            anchors.fill: parent
+        }
         ColumnLayout {
+            id: rectContainerId
             anchors.fill: parent
             StackLayout {
                 id: stackLayoutId
@@ -122,7 +128,7 @@ Window {
             }
         ]
     }
-
+    /*
     InputPanel {
         id: inputPanel
         height: window.implicitHeight / 3
@@ -149,4 +155,5 @@ Window {
             }
         }
     }
+    */
 }

@@ -12,6 +12,12 @@ import QtQuick
 Rectangle {
 
     /**
+     * Private
+     */
+
+    id: root
+
+    /**
      * Public
      */
 
@@ -23,20 +29,14 @@ Rectangle {
      */
     function show(text, duration) {
         message.text = text;
-        if (typeof duration !== "undefined") { // checks if parameter was passed
+        if (typeof duration !== "undefined") {
+            // checks if parameter was passed
             time = Math.max(duration, 2 * fadeTime);
-        }
-        else {
+        } else {
             time = defaultTime;
         }
         animation.start();
     }
-
-    /**
-     * Private
-     */
-
-    id: root
 
     readonly property real defaultTime: 3000
     property real time: defaultTime
@@ -73,7 +73,6 @@ Rectangle {
         id: animation
         running: false
 
-
         NumberAnimation {
             to: .9
             duration: fadeTime
@@ -92,7 +91,6 @@ Rectangle {
             if (!running) {
                 toast.model.remove(index);
             }
-
         }
     }
 }

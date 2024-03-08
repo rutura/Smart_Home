@@ -40,6 +40,7 @@ qt_add_resources(${APP_TARGET} "assets"
         assets/user_24.svg
         assets/password_24.svg
         assets/email_24.svg
+        assets/settings.svg
 )
 
 add_subdirectory(apps)
@@ -49,6 +50,7 @@ add_subdirectory(room)
 add_subdirectory(usage)
 add_subdirectory(user)
 add_subdirectory(utils)
+add_subdirectory(settings)
 
 target_link_libraries(${APP_TARGET}
         PRIVATE
@@ -61,4 +63,5 @@ target_link_libraries(${APP_TARGET}
         AppHWUsageLibplugin
         AppUserLibplugin
         AppUtilsLibplugin
+        AppSettingsLibplugin
 )
