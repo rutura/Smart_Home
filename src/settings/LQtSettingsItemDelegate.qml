@@ -32,7 +32,7 @@ Item {
         Switch {
             checked: model.enabled()
             onToggled: {
-                model.enabled(!model.enabled())
+                model.enabled(!model.enabled());
             }
         }
     }

@@ -48,7 +48,7 @@ Drawer {
                 RoundButton {
                     id: plusId
                     icon {
-                        name: "plus"
+                        name: "settings"
                         source: "qrc:/assets/settings.svg"
                         color: Colors.primaryColor
                     }

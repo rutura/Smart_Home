@@ -26,6 +26,7 @@ PaddedRectangle {
                 iconSource: "qrc:/assets/cooling.svg"
                 topic: "Thermostat"
                 subtopic: "Auto cooling"
+                visible: AppSettings.roomProperties[parseInt(AppSettings.room_state)].fan_enabled
             }
             Item {
                 Layout.fillWidth: true
@@ -35,6 +36,7 @@ PaddedRectangle {
                 state1: "On"
                 state2: "Off"
                 iconSource: "qrc:/assets/power.svg"
+                visible: AppSettings.roomProperties[parseInt(AppSettings.room_state)].fan_enabled
             }
         }
 
@@ -42,6 +44,7 @@ PaddedRectangle {
             Layout.alignment: Qt.AlignHCenter
             Layout.fillWidth: true
             Layout.fillHeight: true
+            visible: AppSettings.roomProperties[parseInt(AppSettings.room_state)].fan_enabled
         }
         RowLayout {
             Layout.fillWidth: true
@@ -51,16 +54,19 @@ PaddedRectangle {
                 iconSource: "qrc:/assets/fan.svg"
                 topic: "Fan Speed"
                 subtopic: "3 Level - Off"
+                visible: AppSettings.roomProperties[parseInt(AppSettings.room_state)].fan_enabled
             }
             LQtEllipseButtonWithTexts {
                 iconSource: "qrc:/assets/time.svg"
                 topic: "Timer"
                 subtopic: "7 Hours - Off"
+                visible: AppSettings.roomProperties[parseInt(AppSettings.room_state)].fan_enabled
             }
             LQtEllipseButtonWithTexts {
                 iconSource: "qrc:/assets/shine.svg"
                 topic: "Auto Mode"
                 subtopic: "On"
+                visible: AppSettings.roomProperties[parseInt(AppSettings.room_state)].fan_enabled
             }
         }
         RowLayout {
@@ -70,11 +76,13 @@ PaddedRectangle {
                 id: lqtControlsCardId
                 Layout.fillWidth: true
                 Layout.fillHeight: true
+                visible: AppSettings.roomProperties[parseInt(AppSettings.room_state)].wifi_display_enabled
             }
             LQtWeeklyPowerCard {
                 id: lqtWeeklyPowerCardId
                 Layout.fillWidth: true
                 Layout.fillHeight: true
+                visible: AppSettings.roomProperties[parseInt(AppSettings.room_state)].power_usage_display_enabled
             }
         }
     }

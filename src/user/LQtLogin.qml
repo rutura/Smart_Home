@@ -250,6 +250,7 @@ Popup {
                         if (typeof result.insertId === "undefined") {
                             toast.show("Failed to register user", 3000);
                         }
+                        toast.show("Registration successful", 3000);
                         break;
                     case "forgotPassword":
                         break;

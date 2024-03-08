@@ -34,6 +34,7 @@ Window {
             visible: true
             onMenuItemSelected: index => {
                 mainContainerId.state = index;
+                AppSettings.room_state = index;
             }
         }
         LQtLogin {
@@ -81,49 +82,42 @@ Window {
                 }
             }
         }
-        state: "2"
+        state: AppSettings.room_state
         states: [
             State {
-                name: "0"
+                name: AppSettings.entrance_index.toString()
                 PropertyChanges {
-                    target: roomId
-                    roomNameLabel: "Entrance"
+                    roomId.roomNameLabel: "Entrance"
                 }
             },
             State {
-                name: "1"
+                name: AppSettings.backyard_index.toString()
                 PropertyChanges {
-                    target: roomId
-                    roomNameLabel: "Backyard"
+                    roomId.roomNameLabel: "Backyard"
                 }
             },
             State {
-                name: "2"
+                name: AppSettings.living_room_index.toString()
                 PropertyChanges {
-                    target: roomId
-                    roomNameLabel: "Living Room"
+                    roomId.roomNameLabel: "Living Room"
                 }
             },
             State {
-                name: "3"
+                name: AppSettings.hallway_index.toString()
                 PropertyChanges {
-                    target: roomId
-                    roomNameLabel: "HallWay"
+                    roomId.roomNameLabel: "HallWay"
                 }
             },
             State {
-                name: "4"
+                name: AppSettings.bedroom_index.toString()
                 PropertyChanges {
-                    target: roomId
-                    roomNameLabel: "Bedroom"
-                    videoFeedVisible: false
+                    roomId.roomNameLabel: "Bedroom"
                 }
             },
             State {
-                name: "5"
+                name: AppSettings.front_door_index.toString()
                 PropertyChanges {
-                    target: roomId
-                    roomNameLabel: "Front Door"
+                    roomId.roomNameLabel: "Front Door"
                 }
             }
         ]
