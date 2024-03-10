@@ -13,6 +13,7 @@ qt_standard_project_setup(REQUIRES 6.5)
 add_subdirectory(src)
 add_subdirectory(drivers)
 add_subdirectory(utils)
+add_subdirectory(services)
 # Qt for iOS sets MACOSX_BUNDLE_GUI_IDENTIFIER automatically since Qt 6.1.
 # If you are developing for iOS or macOS you should consider setting an
 # explicit, fixed bundle identifier manually though.

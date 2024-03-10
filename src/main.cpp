@@ -12,17 +12,17 @@ int main(int argc, char *argv[])
   QQmlApplicationEngine engine;
 
   QObject::connect(
-      &engine,
-      &QQmlApplicationEngine::objectCreationFailed,
-      &app,
-      []() { QCoreApplication::exit(-1); },
-      Qt::QueuedConnection);
+    &engine,
+    &QQmlApplicationEngine::objectCreationFailed,
+    &app,
+    []() { QCoreApplication::exit(-1); },
+    Qt::QueuedConnection);
 
   engine.addImportPath(":/");
 #if defined(Q_OS_ANDROID) || defined(Q_OS_IOS)
-   engine.loadFromModule("Apps", "MobileApp");
+  engine.loadFromModule("Apps", "MobileApp");
 #else
-   engine.loadFromModule("Apps", "DesktopApp");
+  engine.loadFromModule("Apps", "DesktopApp");
 #endif
 
   return app.exec();

@@ -1,4 +1,4 @@
-set(LIB_NAME LQtUtils)
+set(LIB_NAME Utils)
 
 add_library(${LIB_NAME} STATIC)
 
@@ -6,6 +6,7 @@ list(APPEND LIB_HDRs
         NonCopyable.h
 )
 list(APPEND LIB_SRCs
+       NonCopyable.cpp
 )
 
 target_sources(${LIB_NAME} PRIVATE

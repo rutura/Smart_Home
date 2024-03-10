@@ -1,20 +1,17 @@
 #pragma once
 
-#include <QMutex>
-
-template<typename T>
-class NonCopyable {
-protected:
-    NonCopyable() = default;
-    ~NonCopyable() = default;
+template<typename T> class NonCopyable
+{
 public:
-    NonCopyable(const NonCopyable &) = delete;
-    NonCopyable &operator=(const NonCopyable &) = delete;
-    static T& get_default_instance(){
-        QMutexLocker locker(&m_mutex);
-        static T instance;
-        return instance;
-    }
-private:
-    static QMutex m_mutex;
+  NonCopyable(const NonCopyable &) = delete;
+  NonCopyable &operator=(const NonCopyable &) = delete;
+  static T &get_default_instance()
+  {
+    static T instance;
+    return instance;
+  }
+
+protected:
+  NonCopyable() = default;
+  ~NonCopyable() = default;
 };

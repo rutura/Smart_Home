@@ -64,7 +64,5 @@ target_link_libraries(${APP_TARGET}
         AppUserLibplugin
         AppUtilsLibplugin
         AppSettingsLibplugin
-        # drivers
-        LQtSensors
-        LQtActuators
+        LQtServicesLibplugin
 )
