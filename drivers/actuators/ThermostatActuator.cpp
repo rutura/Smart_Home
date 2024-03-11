@@ -37,7 +37,6 @@ QDebug operator<<(QDebug debug, const ThermostatFanModes &fanModes)
 }
 QDebug operator<<(QDebug debug, const ThermostatStates &state)
 {
-  debug << "Cannot be printed as of now";
   debug << "[Thermostat]{ " << state.isOn << ", " << state.fanLevel << "," << state.targetTemperature << ","
         << state.thermostatFanModes << "}";
   return debug;

@@ -18,16 +18,16 @@ class LQtDriverService : public QObject
 {
   Q_OBJECT
   QML_ELEMENT
-  Q_PROPERTY(double temperature READ temperature WRITE setTemperature)
-  Q_PROPERTY(int humidity READ humidity WRITE setHumidity)
-  Q_PROPERTY(bool airPurifierState READ airPurifierState WRITE setAirPurifierState)
-  Q_PROPERTY(LQtHomePodState *lqtHomePodState READ lqtHomePodState WRITE setLqtHomePodState)
-  Q_PROPERTY(LQtThermostatState *lqtThermostatState READ lqtThermostatState WRITE setLqtThermostatState)
-  Q_PROPERTY(bool tvState READ tvState WRITE setTvState)
-  Q_PROPERTY(bool wifiState READ wifiState WRITE setWifiState)
+  Q_PROPERTY(double temperature READ temperature WRITE setTemperature NOTIFY temperatureChanged)
+  Q_PROPERTY(int humidity READ humidity WRITE setHumidity NOTIFY humidityChanged)
+  Q_PROPERTY(bool airPurifierState READ airPurifierState WRITE setAirPurifierState NOTIFY airPurifierStateChanged)
+  Q_PROPERTY(LQtHomePodState* lqtHomePodState READ lqtHomePodState WRITE setLqtHomePodState NOTIFY lqtHomePodStateChanged)
+  Q_PROPERTY(LQtThermostatState* lqtThermostatState READ lqtThermostatState WRITE setLqtThermostatState NOTIFY lqtThermostatStateChanged)
+  Q_PROPERTY(bool tvState READ tvState WRITE setTvState NOTIFY tvStateChanged )
+  Q_PROPERTY(bool wifiState READ wifiState WRITE setWifiState NOTIFY wifiStateChanged)
 
 public:
-  explicit LQtDriverService(QObject *parent);
+  LQtDriverService(QObject *parent = nullptr);
 
   double temperature();
   void setTemperature(double newTemperature);
@@ -50,6 +50,16 @@ public:
   LQtThermostatState *lqtThermostatState();
   void setLqtThermostatState(LQtThermostatState *newThermostatState);
 
+signals:
+  void temperatureChanged();
+  void humidityChanged();
+  void airPurifierStateChanged();
+  void lqtHomePodStateChanged();
+  void lqtThermostatStateChanged();
+  void tvStateChanged();
+  void wifiStateChanged();
+
+
 private:
   TemperatureSensor &temperatureSensor;
   HumiditySensor &humiditySensor;
@@ -59,6 +69,12 @@ private:
   WiFiActuator &wiFiActuator;
   HomePodActuator &homePodActuator;
 
+private:
+  double m_temperature;
+  int m_humidity;
+  bool m_airPurifierState;
   LQtHomePodState *m_lQtHomePodState{ nullptr };
   LQtThermostatState *m_lQtThermostatState{ nullptr };
+  bool m_tvState;
+  bool m_wifiState;
 };

@@ -1,5 +1,9 @@
 #pragma once
-
+/**
+ * Ensure safety in resource-managing classes.
+ * Implements Meyer's singleton pattern
+ * @tparam T
+ */
 template<typename T> class NonCopyable
 {
 public:

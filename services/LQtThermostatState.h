@@ -14,11 +14,11 @@ class LQtThermostatState : public QObject
   Q_OBJECT
   QML_ELEMENT
   Q_PROPERTY(
-    ThermostatStates thermostatStates READ thermostatStates WRITE setThermostatStates NOTIFY thermostatStatesChanged)
+  ThermostatStates thermostatStates READ thermostatStates WRITE setThermostatStates NOTIFY thermostatStatesChanged)
 public:
   explicit LQtThermostatState(QObject *parent = nullptr);
-  Q_ENUMS(FanLevels);
-  Q_ENUMS(ThermostatFanModes);
+  Q_ENUM(FanLevels);
+  Q_ENUM(ThermostatFanModes);
 
   ThermostatStates thermostatStates() const;
   void setThermostatStates(ThermostatStates newThermostatStates);

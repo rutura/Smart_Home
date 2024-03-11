@@ -16,14 +16,14 @@ class LQtHomePodState : public QObject
   Q_PROPERTY(HomePodStates homePodState READ homePodState WRITE setHomePodState NOTIFY homePodStateChanged)
 public:
   explicit LQtHomePodState(QObject *parent = nullptr);
-  Q_ENUMS(HomePodStates);
+  Q_ENUM(HomePodStates);
   HomePodStates homePodState() const;
   void setHomePodState(HomePodStates newHomePodState);
 signals:
   void homePodStateChanged();
 
 private:
-  HomePodStates m_homePodState;
+  HomePodStates m_homePodState{HomePodStates::STOPPED};
 };
 
 #endif// SMARTHOME_LQTHOMEPODSTATE_H

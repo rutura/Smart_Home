@@ -21,6 +21,7 @@ struct ThermostatStates
   Q_PROPERTY(double targetTemperature MEMBER targetTemperature);
   Q_PROPERTY(ThermostatFanModes thermostatFanModes MEMBER thermostatFanModes);
 };
+Q_DECLARE_METATYPE(ThermostatStates)
 
 QDebug operator<<(QDebug debug, const ThermostatStates &state);
 
