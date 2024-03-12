@@ -13,20 +13,52 @@ class LQtThermostatState : public QObject
 {
   Q_OBJECT
   QML_ELEMENT
-  Q_PROPERTY(
-  ThermostatStates thermostatStates READ thermostatStates WRITE setThermostatStates NOTIFY thermostatStatesChanged)
+  Q_PROPERTY(bool isOn READ isOn WRITE setIsOn NOTIFY isOnChanged)
+  Q_PROPERTY(_FanLevels fanLevel READ fanLevel WRITE setFanLevel NOTIFY fanLevelChanged)
+  Q_PROPERTY(double targetTemperature READ targetTemperature WRITE setTargetTemperature NOTIFY targetTemperatureChanged)
+  Q_PROPERTY(_ThermostatFanModes fanMode READ fanMode WRITE setFanMode NOTIFY fanModeChanged)
 public:
   explicit LQtThermostatState(QObject *parent = nullptr);
-  Q_ENUM(FanLevels);
-  Q_ENUM(ThermostatFanModes);
+  enum _FanLevels {
+    LEVEL_1 = FanLevels::LEVEL_1,
+    LEVEL_2 = FanLevels::LEVEL_2,
+    LEVEL_3 = FanLevels::LEVEL_3,
+    LEVEL_4 = FanLevels::LEVEL_4,
+    LEVEL_5 = FanLevels::LEVEL_5
+  };
+  Q_ENUM(_FanLevels);
+  enum _ThermostatFanModes {
+    AUTO_MODE = ThermostatFanModes::AUTO_MODE,
+    TIMER_MODE = ThermostatFanModes::TIMER_MODE
+  };
+  Q_ENUM(_ThermostatFanModes);
 
-  ThermostatStates thermostatStates() const;
-  void setThermostatStates(ThermostatStates newThermostatStates);
+  bool isOn() const;
+  void setIsOn(bool newOnState);
+
+  _FanLevels fanLevel() const;
+  void setFanLevel(_FanLevels newFanLevel);
+
+  double targetTemperature() const;
+  void setTargetTemperature(double newTargetTemperature);
+
+  _ThermostatFanModes fanMode() const;
+  void setFanMode(_ThermostatFanModes newFanMode);
+
+  ThermostatStates getThermostatStates() const;
 signals:
-  void thermostatStatesChanged();
-
+  void isOnChanged();
+  void fanLevelChanged();
+  void targetTemperatureChanged();
+  void fanModeChanged();
 private:
-  ThermostatStates m_thermostatStates{};
+  ThermostatFanModes getFanMode() const;
+  FanLevels getFanLevel() const;
+private:
+  _FanLevels m_fanLevel;
+  _ThermostatFanModes m_fanMode;
+  bool m_isOn;
+  double m_targetTempeature;
 };
 
 #endif// SMARTHOME_LQTTHERMOSTATSTATE_H

@@ -13,17 +13,23 @@ class LQtHomePodState : public QObject
 {
   Q_OBJECT
   QML_ELEMENT
-  Q_PROPERTY(HomePodStates homePodState READ homePodState WRITE setHomePodState NOTIFY homePodStateChanged)
+  Q_PROPERTY(_HomePodStates homePodState READ homePodState WRITE setHomePodState NOTIFY homePodStateChanged)
 public:
   explicit LQtHomePodState(QObject *parent = nullptr);
-  Q_ENUM(HomePodStates);
-  HomePodStates homePodState() const;
-  void setHomePodState(HomePodStates newHomePodState);
+  enum _HomePodStates {
+    STOPPED = HomePodStates::STOPPED,
+    PLAYING = HomePodStates::PLAYING,
+    PAUSED = HomePodStates::PAUSED
+  };
+  Q_ENUM(_HomePodStates);
+  _HomePodStates homePodState() const;
+  HomePodStates getHomePodState() const;
+  void setHomePodState(_HomePodStates newHomePodState);
 signals:
   void homePodStateChanged();
 
 private:
-  HomePodStates m_homePodState{HomePodStates::STOPPED};
+  _HomePodStates m_homePodState{LQtHomePodState::STOPPED};
 };
 
 #endif// SMARTHOME_LQTHOMEPODSTATE_H

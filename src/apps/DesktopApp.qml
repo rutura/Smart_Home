@@ -28,10 +28,16 @@ Window {
 
     LQtHomePodState{
         id: lqtHomePodStateId
+        homePodState: LQtHomePodState.PLAYING
     }
     LQtThermostatState{
         id: lqtThermostatId
+        isOn: true
+        fanLevel: LQtThermostatState.LEVEL_1
+        targetTemperature: 28.5
+        fanMode: LQtThermostatState.AUTO_MODE
     }
+
     LQtDriverService{
         id: lqtDriverServiceId
         lqtHomePodState: lqtHomePodStateId

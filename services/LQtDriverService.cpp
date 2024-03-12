@@ -60,7 +60,7 @@ void LQtDriverService::setLqtHomePodState(LQtHomePodState *newLqtHomePodState)
 {
   if (newLqtHomePodState == m_lQtHomePodState) return;
   m_lQtHomePodState = newLqtHomePodState;
-  homePodActuator.setState(m_lQtHomePodState->homePodState());
+  homePodActuator.setState(m_lQtHomePodState->getHomePodState());
   emit lqtHomePodStateChanged();
 }
 LQtThermostatState *LQtDriverService::lqtThermostatState() { return m_lQtThermostatState; }
@@ -68,6 +68,6 @@ void LQtDriverService::setLqtThermostatState(LQtThermostatState *newThermostatSt
 {
   if (newThermostatState == m_lQtThermostatState) return;
   m_lQtThermostatState = newThermostatState;
-  thermostatActuator.setState(m_lQtThermostatState->thermostatStates());
+  thermostatActuator.setState(m_lQtThermostatState->getThermostatStates());
   emit lqtThermostatStateChanged();
 }

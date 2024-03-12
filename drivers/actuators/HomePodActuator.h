@@ -1,7 +1,7 @@
 #pragma once
 #include "Actuator.h"
 
-enum class HomePodStates {
+enum HomePodStates {
   STOPPED = 0,
   PLAYING,
   PAUSED,
