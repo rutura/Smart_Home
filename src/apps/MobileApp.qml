@@ -9,6 +9,7 @@ import AppHWUsage
 import AppUser
 import AppUtils
 import AppSettings
+import LQtServices
 
 Window {
     id: window
@@ -21,6 +22,28 @@ Window {
 
     ToastManager {
         id: toast
+    }
+    LQtHomePodState{
+        id: lqtHomePodStateId
+        homePodState: LQtHomePodState.STOPPED
+    }
+    LQtThermostatState{
+        id: lqtThermostatId
+        isOn: false
+        fanLevel: LQtThermostatState.LEVEL_1
+        targetTemperature: 28.5
+        fanMode: LQtThermostatState.AUTO_MODE
+    }
+
+    LQtDriverService{
+        id: lqtDriverServiceId
+        lqtHomePodState: lqtHomePodStateId
+        lqtThermostatState: lqtThermostatId
+        temperature: 26.5
+        humidity: 72
+        airPurifierState: true
+        tvState: true
+        wifiState: true
     }
 
     PaddedRectangle {
