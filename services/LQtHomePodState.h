@@ -29,7 +29,7 @@ signals:
   void homePodStateChanged();
 
 private:
-  _HomePodStates m_homePodState{LQtHomePodState::STOPPED};
+  _HomePodStates m_homePodState{ LQtHomePodState::STOPPED };
 };
 
 #endif// SMARTHOME_LQTHOMEPODSTATE_H

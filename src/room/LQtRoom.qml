@@ -51,12 +51,12 @@ PaddedRectangle {
             }
             LQtIconWithText {
                 iconSource: "qrc:/assets/humidity.svg"
-                text: "72%"
+                text: qsTr(lqtDriverServiceId.humidity + "%")
                 visible: AppSettings.roomProperties[parseInt(AppSettings.room_state)].humidity_display_enabled
             }
             LQtIconWithText {
                 iconSource: "qrc:/assets/temperature.svg"
-                text: "32°"
+                text: qsTr(lqtDriverServiceId.temperature + "°")
                 visible: AppSettings.roomProperties[parseInt(AppSettings.room_state)].temperature_display_enabled
             }
         }
@@ -77,6 +77,10 @@ PaddedRectangle {
                 title: "Nest Wi-Fi"
                 status: "Connected"
                 visible: AppSettings.roomProperties[parseInt(AppSettings.room_state)].wifi_enabled
+                active: lqtDriverServiceId.wifiState
+                onActiveChanged: {
+                    lqtDriverServiceId.wifiState = active;
+                }
             }
             LQtAccessory {
                 Layout.fillWidth: true
@@ -85,6 +89,10 @@ PaddedRectangle {
                 title: "Sony TV"
                 status: "On Standby"
                 visible: AppSettings.roomProperties[parseInt(AppSettings.room_state)].tv_enabled
+                active: lqtDriverServiceId.tvState
+                onActiveChanged: {
+                    lqtDriverServiceId.tvState = active;
+                }
             }
             LQtAccessory {
                 Layout.fillWidth: true
@@ -93,6 +101,11 @@ PaddedRectangle {
                 title: "Thermostat"
                 status: "Cooling to 26.5°"
                 visible: AppSettings.roomProperties[parseInt(AppSettings.room_state)].thermostat_enabled
+                active: lqtThermostatId.isOn
+                onActiveChanged: {
+                    lqtThermostatId.isOn = active;
+                    lqtDriverServiceId.lqtThermostatState = lqtThermostatId;
+                }
             }
             LQtAccessory {
                 Layout.fillWidth: true
@@ -101,6 +114,10 @@ PaddedRectangle {
                 title: "Air Purifier"
                 status: "Off"
                 visible: AppSettings.roomProperties[parseInt(AppSettings.room_state)].air_purifier_enabled
+                active: lqtDriverServiceId.airPurifierState
+                onActiveChanged: {
+                    lqtDriverServiceId.airPurifierState = active;
+                }
             }
             LQtAccessoryWithMusic {
                 Layout.fillWidth: true

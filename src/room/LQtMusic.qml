@@ -2,6 +2,7 @@ import QtQuick
 import QtQuick.Controls
 import QtQuick.Layouts
 import AppConstants
+import LQtServices
 
 Item {
     implicitHeight: containerId.implicitHeight
@@ -10,6 +11,7 @@ Item {
 
     property alias currentSong: currentSongId.text
     property alias currentArtist: currentArtistId.text
+    property int currentState: lqtHomePodStateId.homePodState
 
     ColumnLayout {
         id: containerId
@@ -40,9 +42,17 @@ Item {
             }
             RoundButton {
                 icon {
-                    source: "qrc:/assets/play.svg"
+                    source: currentState ===  LQtHomePodState.PLAYING ? "qrc:/assets/pause.svg": "qrc:/assets/play.svg"
                     name: "play_or_pause"
                     color: Colors.primaryColor
+                }
+                onClicked: {
+                    if(currentState === LQtHomePodState.PLAYING){
+                        currentState = LQtHomePodState.PAUSED
+                    }else{
+                         currentState = LQtHomePodState.PLAYING
+                    }
+                    lqtHomePodStateId.homePodState = currentState;
                 }
             }
             RoundButton {

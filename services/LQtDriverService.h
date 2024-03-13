@@ -21,9 +21,11 @@ class LQtDriverService : public QObject
   Q_PROPERTY(double temperature READ temperature WRITE setTemperature NOTIFY temperatureChanged)
   Q_PROPERTY(int humidity READ humidity WRITE setHumidity NOTIFY humidityChanged)
   Q_PROPERTY(bool airPurifierState READ airPurifierState WRITE setAirPurifierState NOTIFY airPurifierStateChanged)
-  Q_PROPERTY(LQtHomePodState* lqtHomePodState READ lqtHomePodState WRITE setLqtHomePodState NOTIFY lqtHomePodStateChanged)
-  Q_PROPERTY(LQtThermostatState* lqtThermostatState READ lqtThermostatState WRITE setLqtThermostatState NOTIFY lqtThermostatStateChanged)
-  Q_PROPERTY(bool tvState READ tvState WRITE setTvState NOTIFY tvStateChanged )
+  Q_PROPERTY(
+    LQtHomePodState *lqtHomePodState READ lqtHomePodState WRITE setLqtHomePodState NOTIFY lqtHomePodStateChanged)
+  Q_PROPERTY(LQtThermostatState *lqtThermostatState READ lqtThermostatState WRITE setLqtThermostatState NOTIFY
+      lqtThermostatStateChanged)
+  Q_PROPERTY(bool tvState READ tvState WRITE setTvState NOTIFY tvStateChanged)
   Q_PROPERTY(bool wifiState READ wifiState WRITE setWifiState NOTIFY wifiStateChanged)
 
 public:

@@ -41,6 +41,7 @@ qt_add_resources(${APP_TARGET} "assets"
         assets/password_24.svg
         assets/email_24.svg
         assets/settings.svg
+        assets/pause.svg
 )
 
 add_subdirectory(apps)

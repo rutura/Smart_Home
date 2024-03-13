@@ -2,6 +2,7 @@ import QtQuick
 import QtQuick.Controls
 import QtQuick.Layouts
 import AppConstants
+import LQtServices
 
 PaddedRectangle {
     implicitHeight: containerId.implicitHeight
@@ -30,7 +31,7 @@ PaddedRectangle {
             IconImage {
                 id: accessoryIconId
                 name: "accessory"
-                color: Colors.primaryColor
+                color: lqtHomePodStateId.homePodState ===LQtHomePodState.PLAYING? Colors.linkColor:  Colors.primaryColor
             }
             Item {
                 Layout.fillHeight: true
@@ -52,6 +53,9 @@ PaddedRectangle {
         LQtMusic {
             id: musicId
             Layout.fillHeight: true
+            onCurrentStateChanged: {
+                lqtDriverServiceId.lqtHomePodState  = lqtHomePodStateId
+            }
         }
     }
 }

@@ -4,13 +4,16 @@ import QtQuick.Layouts
 import AppConstants
 
 Item {
+    id: lqtEllipseButtonWithTextId
+
     implicitHeight: containerId.implicitHeight
     implicitWidth: containerId.implicitWidth
 
     property alias iconSource: iconId.icon.source
     property alias topic: topicId.text
     property alias subtopic: subtopicId.text
-
+    property alias checked: iconId.checked
+    signal clicked()
     ColumnLayout {
         id: containerId
         anchors.fill: parent
@@ -19,9 +22,10 @@ Item {
             Layout.alignment: Qt.AlignHCenter
             icon {
                 name: "buttonIcon"
-                color: Colors.primaryColor
+                color: iconId.checked ? Colors.linkColor: Colors.primaryColor
             }
             checkable: true
+            onClicked: lqtEllipseButtonWithTextId.clicked()
         }
         Label {
             id: topicId

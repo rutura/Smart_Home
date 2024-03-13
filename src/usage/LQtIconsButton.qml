@@ -4,6 +4,7 @@ import QtQuick.Controls
 import AppConstants
 
 PaddedRectangle {
+    id: lqtIconButtonId
     implicitHeight: containerId.implicitHeight
     implicitWidth: containerId.implicitWidth
 
@@ -15,9 +16,7 @@ PaddedRectangle {
     property alias iconSource: roundButtonId.icon.source
     property alias state1: state1TextId.text
     property alias state2: state2TextId.text
-    signal iconClicked
-
-    property bool isIconClicked: false
+    signal clicked()
 
     RowLayout {
         id: containerId
@@ -44,25 +43,35 @@ PaddedRectangle {
                 color: Colors.primaryColor
             }
             onClicked: {
-                isIconClicked = !isIconClicked;
-                iconClicked();
+                if(lqtIconButtonId.state === lqtIconButtonId.state1){
+                   lqtIconButtonId.state = lqtIconButtonId.state2;
+                }else {
+                      lqtIconButtonId.state = lqtIconButtonId.state1;
+                }
+                lqtIconButtonId.clicked()
             }
         }
     }
-    Connections {
-        target: roundButtonId
-        function onClicked() {
-            if (isIconClicked) {
-                state1TextId.font.bold = true;
-                state1TextId.font.pointSize = 14;
-                state2TextId.font.bold = false;
-                state2TextId.font.pointSize = 11;
-            } else {
-                state2TextId.font.bold = true;
-                state2TextId.font.pointSize = 14;
-                state1TextId.font.bold = false;
-                state1TextId.font.pointSize = 11;
-            }
+    state: state1
+    states: [
+    State {
+         name: state1
+         PropertyChanges {
+             state1TextId.font.bold: true
+             state1TextId.font.pointSize: 14
+             state2TextId.font.bold:false
+             state2TextId.font.pointSize: 11
+         }
+        },
+        State {
+           name: state2
+           PropertyChanges {
+               state2TextId.font.bold: true
+               state2TextId.font.pointSize: 14
+               state1TextId.font.bold: false
+               state1TextId.font.pointSize: 11
+           }
         }
-    }
+
+    ]
 }

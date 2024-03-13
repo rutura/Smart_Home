@@ -2,14 +2,11 @@
 
 LQtHomePodState::LQtHomePodState(QObject *parent) : QObject(parent) {}
 
-LQtHomePodState::_HomePodStates LQtHomePodState::homePodState() const
-{
-  return m_homePodState;
-}
+LQtHomePodState::_HomePodStates LQtHomePodState::homePodState() const { return m_homePodState; }
 
 HomePodStates LQtHomePodState::getHomePodState() const
 {
-  switch(m_homePodState){
+  switch (m_homePodState) {
   case _HomePodStates::PLAYING:
     return HomePodStates::PLAYING;
   case _HomePodStates::STOPPED:

@@ -4,6 +4,7 @@ import QtQuick.Layouts
 import AppConstants
 
 PaddedRectangle {
+    id: accessoryId
     implicitHeight: containerId.implicitHeight
     implicitWidth: containerId.implicitWidth
 
@@ -17,7 +18,7 @@ PaddedRectangle {
     property alias title: accessoryTitleId.text
     property alias status: accessoryStatusId.text
     property bool showInfo: false
-
+    property bool active: false
     ColumnLayout {
         id: containerId
         anchors.fill: parent
@@ -28,7 +29,7 @@ PaddedRectangle {
             IconImage {
                 id: accessoryIconId
                 name: "AccessoryIcon"
-                color: Colors.primaryColor
+                color: active ? Colors.linkColor: Colors.primaryColor
             }
             Item {
                 Layout.fillWidth: true
@@ -59,6 +60,12 @@ PaddedRectangle {
             Layout.fillWidth: true
             Layout.fillHeight: true
             color: Colors.primaryTextColor
+        }
+    }
+    MouseArea{
+        anchors.fill: parent
+        onClicked: {
+            accessoryId.active = !accessoryId.active
         }
     }
 }

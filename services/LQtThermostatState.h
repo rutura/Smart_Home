@@ -27,10 +27,7 @@ public:
     LEVEL_5 = FanLevels::LEVEL_5
   };
   Q_ENUM(_FanLevels);
-  enum _ThermostatFanModes {
-    AUTO_MODE = ThermostatFanModes::AUTO_MODE,
-    TIMER_MODE = ThermostatFanModes::TIMER_MODE
-  };
+  enum _ThermostatFanModes { AUTO_MODE = ThermostatFanModes::AUTO_MODE, TIMER_MODE = ThermostatFanModes::TIMER_MODE };
   Q_ENUM(_ThermostatFanModes);
 
   bool isOn() const;
@@ -46,14 +43,17 @@ public:
   void setFanMode(_ThermostatFanModes newFanMode);
 
   ThermostatStates getThermostatStates() const;
+  // bool operator==(const LQtThermostatState &other) const;
 signals:
   void isOnChanged();
   void fanLevelChanged();
   void targetTemperatureChanged();
   void fanModeChanged();
+
 private:
   ThermostatFanModes getFanMode() const;
   FanLevels getFanLevel() const;
+
 private:
   _FanLevels m_fanLevel;
   _ThermostatFanModes m_fanMode;

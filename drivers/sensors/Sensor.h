@@ -8,12 +8,7 @@ template<typename T> class Sensor
 public:
   virtual T read()
   {
-    // if not overridden generate random values
-    if constexpr (std::is_same<T, int>::value) {
-      value = QRandomGenerator::global()->generate();
-    } else {
-      value = QRandomGenerator::global()->generateDouble();
-    }
+    value = QRandomGenerator::global()->bounded(20, 100);
     return value;
   }
   void reset(T newValue = 0) { value = newValue; }
