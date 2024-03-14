@@ -87,6 +87,7 @@ Settings {
     readonly property int bedroom_index: 4
     readonly property int front_door_index: 5
 
+    // property array for easier and generic access from the room and usage controls .
     property var roomProperties: [
         // entrance
         {

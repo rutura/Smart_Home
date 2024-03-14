@@ -3,6 +3,9 @@ import QtQuick.Controls
 import QtQuick.Layouts
 import AppConstants
 
+/**
+ *  @brief Precompile component with components for room actuators and controls
+ */
 PaddedRectangle {
 
     implicitHeight: containerId.implicitHeight

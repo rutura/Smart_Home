@@ -3,6 +3,10 @@
 #include <QRandomGenerator>
 #include <QtTypes>
 
+/**
+ * @brief Template for sensor common methods
+ * @tparam T Sensor value type
+ */
 template<typename T> class Sensor
 {
 public:

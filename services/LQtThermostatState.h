@@ -9,6 +9,10 @@
 #include <QtQmlIntegration>
 #include <ThermostatActuator.h>
 
+/**
+ * @brief LQtThermostatState class bridging the thermostat state type.
+ * - QML Creatable
+ */
 class LQtThermostatState : public QObject
 {
   Q_OBJECT
@@ -19,6 +23,7 @@ class LQtThermostatState : public QObject
   Q_PROPERTY(_ThermostatFanModes fanMode READ fanMode WRITE setFanMode NOTIFY fanModeChanged)
 public:
   explicit LQtThermostatState(QObject *parent = nullptr);
+  // QML-Accessible Bridge enumeration to driver enumeration.
   enum _FanLevels {
     LEVEL_1 = FanLevels::LEVEL_1,
     LEVEL_2 = FanLevels::LEVEL_2,
@@ -42,6 +47,10 @@ public:
   _ThermostatFanModes fanMode() const;
   void setFanMode(_ThermostatFanModes newFanMode);
 
+  /**
+   * A converter from this QML-Accessible type to driver type
+   * @return
+   */
   ThermostatStates getThermostatStates() const;
   // bool operator==(const LQtThermostatState &other) const;
 signals:

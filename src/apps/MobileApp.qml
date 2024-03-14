@@ -10,7 +10,10 @@ import AppUser
 import AppUtils
 import AppSettings
 import LQtServices
-
+/**
+ * @brief Compiles all the components into a mobile view(stack layout)
+ * - Also uses material theme
+ */
 Window {
     id: window
     visible: true

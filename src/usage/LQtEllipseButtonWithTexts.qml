@@ -3,6 +3,9 @@ import QtQuick.Controls
 import QtQuick.Layouts
 import AppConstants
 
+/**
+ * @brief -
+ */
 Item {
     id: lqtEllipseButtonWithTextId
 

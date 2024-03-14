@@ -4,6 +4,9 @@ import QtQuick.Layouts
 import AppConstants
 import LQtServices
 
+/**
+ * @brief Component with music controls for a home pod.
+ */
 Item {
     implicitHeight: containerId.implicitHeight
     implicitWidth: containerId.implicitWidth

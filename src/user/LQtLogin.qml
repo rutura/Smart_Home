@@ -4,6 +4,15 @@ import QtQuick.Layouts
 import AppConstants
 import AppUtils
 
+/**
+ * @brief A login interface pop-up with the following features:
+     * - User sign up
+     * - User login
+     * - User forgot password
+     * - Interacts with a local user database.
+ * - Signup, login and forgot password features are managed using states. Relevant fields in that state are shown otherwise hidden.
+ * - Integrated status/error reporting and handling using toasts and labels
+ */
 Popup {
     id: popupId
 

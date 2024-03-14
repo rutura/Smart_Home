@@ -1,11 +1,15 @@
 import QtQuick
 import AppConstants
-
+/**
+ * @brief Settings list model.
+ */
 ListModel {
     // Living Room
     ListElement {
         group: "Living Room"
         name: "Humidity Display"
+        // A work around of Error: ListElement: cannot use script for property value
+        // https://forum.qt.io/topic/142735/pass-callback-function-from-model-to-view-listelement-cannot-use-script-for-property-value
         enabled: function (isEnabled = AppSettings.living_room_humidity_display_enabled) {
             return (AppSettings.living_room_humidity_display_enabled = isEnabled);
         }

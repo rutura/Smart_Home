@@ -3,6 +3,9 @@ import QtQuick.Controls
 import QtQuick.Layouts
 import AppConstants
 
+/**
+ * @brief WiFi and power display
+ */
 PaddedRectangle {
     implicitHeight: containerId.implicitHeight
     implicitWidth: containerId.implicitWidth

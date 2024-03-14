@@ -1,6 +1,9 @@
 import QtQuick
 import QtQuick.Controls
 
+/**
+ * @brief - time range slider that is used to interact with the video feed from the security cameras
+ */
 /*REQUIRED:  define width*/
 Slider {
     id: control

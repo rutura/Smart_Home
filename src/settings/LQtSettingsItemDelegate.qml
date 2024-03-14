@@ -3,13 +3,18 @@ import QtQuick.Controls
 import QtQuick.Layouts
 import AppConstants
 
+/**
+ *  @brief  LIst view delegate for the settings list view
+ */
 Item {
     // width: ListView.view.width
     implicitHeight: containerId.implicitHeight
     implicitWidth: containerId.implicitWidth
 
     property bool expanded: false
+    // height when collapsed or expanded
     height: expanded ? implicitHeight : 0
+    // animation on collapsing or expanding.
     Behavior on height {
         NumberAnimation {
             duration: 200

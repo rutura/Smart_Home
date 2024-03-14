@@ -5,6 +5,12 @@ import QtQuick.Shapes
 import AppConstants
 import LQtServices
 
+/**
+ * @brief Integrates controls and displays. Contains
+ * - Power Usage in a weekly basis
+ * - WiFI and Power state
+ * - Thermostat controls(Dial and mode buttons)
+ */
 PaddedRectangle {
     id: control
     implicitHeight: containerId.implicitHeight

@@ -14,6 +14,12 @@
 #include <HumiditySensor.h>
 #include <TemperatureSensor.h>
 
+/**
+ * @brief LQtDriverService class
+ * - Manages the driver core(A resource in this case).
+ * - QML creatable
+ *
+ */
 class LQtDriverService : public QObject
 {
   Q_OBJECT

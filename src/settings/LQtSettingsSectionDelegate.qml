@@ -3,6 +3,9 @@ import QtQuick.Controls
 import QtQuick.Layouts
 import AppConstants
 
+/**
+ * @brief Section Item delegate for settings list view.
+ */
 PaddedRectangle {
     id: rectangleId
     implicitHeight: containerId.implicitHeight

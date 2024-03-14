@@ -1,7 +1,9 @@
 import QtQuick
 import QtQuick.Controls
 import QtQuick.Shapes
-
+/**
+ *  @brief Thermostat Dial bounded to maximum and minimum temperature.
+ */
 CircularSlider {
     id: slider
     width: 300

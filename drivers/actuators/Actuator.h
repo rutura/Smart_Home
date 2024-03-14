@@ -3,6 +3,10 @@
 #include <NonCopyable.h>
 #include <QDebug>
 
+/**
+ * @brief Template with actuator common methods
+ * @tparam T - Actuator state type
+ */
 template<typename T> class Actuator
 {
 public:

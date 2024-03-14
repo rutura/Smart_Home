@@ -8,7 +8,10 @@
 #include <HomePodActuator.h>
 #include <QObject>
 #include <QtQmlIntegration>
-
+/**
+ * @brief LQtHomePodState class manages home pod states
+ * - HomePod states type is not primitive type hence the need for a qml creatable class
+ */
 class LQtHomePodState : public QObject
 {
   Q_OBJECT
@@ -16,6 +19,7 @@ class LQtHomePodState : public QObject
   Q_PROPERTY(_HomePodStates homePodState READ homePodState WRITE setHomePodState NOTIFY homePodStateChanged)
 public:
   explicit LQtHomePodState(QObject *parent = nullptr);
+  // A bridge-enum that is qml accessible and links to homepod actuator driver enum.
   enum _HomePodStates {
     STOPPED = HomePodStates::STOPPED,
     PLAYING = HomePodStates::PLAYING,
@@ -23,6 +27,10 @@ public:
   };
   Q_ENUM(_HomePodStates);
   _HomePodStates homePodState() const;
+  /**
+   * @brief Convert QML-accessible bridge enumeration to driver enumeration.
+   * @return returns driver enumeration type.
+   */
   HomePodStates getHomePodState() const;
   void setHomePodState(_HomePodStates newHomePodState);
 signals:

@@ -3,6 +3,9 @@ import QtQuick.Controls
 import QtQuick.Layouts
 import AppConstants
 
+/**
+ * @brief Navigation drawer
+ */
 Drawer {
     id: drawerId
 
@@ -11,6 +14,7 @@ Drawer {
 
     signal menuItemSelected(real index)
 
+    // one menu item selected, all the other menu items should be deselected and hence an array to manage them .
     property var menuChildren: [entranceId, backyardId, livingroomId, hallwayId, bedroomId, frontdoorId]
     PaddedRectangle {
         anchors.fill: parent

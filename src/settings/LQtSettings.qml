@@ -3,6 +3,9 @@ import QtQuick.Controls
 import QtQuick.Layouts
 import AppConstants
 
+/**
+ * @brief - Settings page with user profile and list view of settings list items
+ */
 PaddedRectangle {
     id: controlId
     implicitHeight: containerId.implicitHeight
@@ -43,7 +46,7 @@ PaddedRectangle {
             Layout.fillHeight: true
             Layout.fillWidth: true
 
-            property var collapsed: ({})
+            property var collapsed: ({})// object list of collapsed elements
             focus: true
             clip: true
 
@@ -64,6 +67,7 @@ PaddedRectangle {
                     width: ListView.view.width
                     text: section
                     enabled: {
+                        // disabled = the elements of this section are cumulatively disabled otherwise enabled
                         let flag = false;
                         for (var i = 0; i < settingsModelId.count; ++i) {
                             if (settingsModelId.get(i).group === section) {
@@ -73,6 +77,7 @@ PaddedRectangle {
                         return flag;
                     }
                     onToggled: {
+                        // toggle this section elements
                         for (var i = 0; i < settingsModelId.count; ++i) {
                             if (settingsModelId.get(i).group === section) {
                                 settingsModelId.get(i).enabled(sectionDelegateId.enabled);
@@ -97,6 +102,10 @@ PaddedRectangle {
                 /*emit*/ collapsedChanged();
             }
 
+            /**
+             * If collapsed, expand otherwise collapse
+             * @param section
+             */
             function toggleSection(section) {
                 if (isSectionExpanded(section)) {
                     hideSection(section);

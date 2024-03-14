@@ -4,6 +4,9 @@ import QtQuick.Layouts
 import QtMultimedia
 import AppConstants
 
+/**
+ * @brief Displays live feed from a url containing video and audio feed from main cameras around the room.
+ */
 PaddedRectangle {
     implicitHeight: containerId.implicitHeight
     implicitWidth: containerId.implicitWidth
@@ -59,6 +62,7 @@ PaddedRectangle {
             Layout.fillHeight: true
             topic: "1025 Sacana Street"
             subtopic: "Rita Leila is ringing \n the door bell"
+            // dummy feed
             feed: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
         }
     }

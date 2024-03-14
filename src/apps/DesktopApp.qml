@@ -11,6 +11,10 @@ import AppUtils
 import AppSettings
 import LQtServices
 
+/**
+ * @brief Compiles all the components and controls into row layout for a desktop view.
+ * - Uses Material theme
+ */
 Window {
     id: window
     visible: true
@@ -22,7 +26,7 @@ Window {
     Material.theme: Colors.getCurrentTheme()
     Material.accent: Material.Blue
 
-    ToastManager {
+    ToastManager {// declared here with id for access by all the child components of this window.
         id: toast
     }
 
